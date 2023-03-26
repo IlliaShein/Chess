@@ -1,0 +1,159 @@
+﻿<Window x:Class="Chess.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chess"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="700">
+    <Grid x:Name="GameField" MouseLeftButtonDown="GameField_MouseLeftButtonDown">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Column = "1" Grid.Row="0" Background="#654321"/>
+        <Border Grid.Column = "3" Grid.Row="0" Background="#654321"/>
+        <Border Grid.Column = "5" Grid.Row="0" Background="#654321"/>
+        <Border Grid.Column = "7" Grid.Row="0" Background="#654321"/>
+
+
+        <Border Grid.Column = "0" Grid.Row="1" Background="#654321"/>
+        <Border Grid.Column = "2" Grid.Row="1" Background="#654321"/>
+        <Border Grid.Column = "4" Grid.Row="1" Background="#654321"/>
+        <Border Grid.Column = "6" Grid.Row="1" Background="#654321"/>
+
+        <Border Grid.Column = "1" Grid.Row="2" Background="#654321"/>
+        <Border Grid.Column = "3" Grid.Row="2" Background="#654321"/>
+        <Border Grid.Column = "5" Grid.Row="2" Background="#654321"/>
+        <Border Grid.Column = "7" Grid.Row="2" Background="#654321"/>
+
+        <Border Grid.Column = "0" Grid.Row="3" Background="#654321"/>
+        <Border Grid.Column = "2" Grid.Row="3" Background="#654321"/>
+        <Border Grid.Column = "4" Grid.Row="3" Background="#654321"/>
+        <Border Grid.Column = "6" Grid.Row="3" Background="#654321"/>
+
+        <Border Grid.Column = "1" Grid.Row="4" Background="#654321"/>
+        <Border Grid.Column = "3" Grid.Row="4" Background="#654321"/>
+        <Border Grid.Column = "5" Grid.Row="4" Background="#654321"/>
+        <Border Grid.Column = "7" Grid.Row="4" Background="#654321"/>
+
+        <Border Grid.Column = "0" Grid.Row="5" Background="#654321"/>
+        <Border Grid.Column = "2" Grid.Row="5" Background="#654321"/>
+        <Border Grid.Column = "4" Grid.Row="5" Background="#654321"/>
+        <Border Grid.Column = "6" Grid.Row="5" Background="#654321"/>
+
+        <Border Grid.Column = "1" Grid.Row="6" Background="#654321"/>
+        <Border Grid.Column = "3" Grid.Row="6" Background="#654321"/>
+        <Border  Grid.Column = "5" Grid.Row="6" Background="#654321"/>
+        <Border Grid.Column = "7" Grid.Row="6" Background="#654321"/>
+
+        <Border Grid.Column = "0" Grid.Row="7" Background="#654321"/>
+        <Border Grid.Column = "2" Grid.Row="7" Background="#654321"/>
+        <Border Grid.Column = "4" Grid.Row="7" Background="#654321"/>
+        <Border Grid.Column = "6" Grid.Row="7" Background="#654321"/>
+
+        <Border Grid.Column = "0" Grid.Row="0" Background="#FFFDD0"/>
+        <Border Grid.Column = "2" Grid.Row="0" Background="#FFFDD0"/>
+        <Border Grid.Column = "4" Grid.Row="0" Background="#FFFDD0"/>
+        <Border Grid.Column = "6" Grid.Row="0" Background="#FFFDD0"/>
+
+        <Border Grid.Column = "1" Grid.Row="1" Background="#FFFDD0"/>
+        <Border Grid.Column = "3" Grid.Row="1" Background="#FFFDD0"/>
+        <Border Grid.Column = "5" Grid.Row="1" Background="#FFFDD0"/>
+        <Border Grid.Column = "7" Grid.Row="1" Background="#FFFDD0"/>
+
+        <Border Grid.Column = "0" Grid.Row="2" Background="#FFFDD0"/>
+        <Border Grid.Column = "2" Grid.Row="2" Background="#FFFDD0"/>
+        <Border Grid.Column = "4" Grid.Row="2" Background="#FFFDD0"/>
+        <Border Grid.Column = "6" Grid.Row="2" Background="#FFFDD0"/>
+
+        <Border Grid.Column = "1" Grid.Row="3" Background="#FFFDD0"/>
+        <Border Grid.Column = "3" Grid.Row="3" Background="#FFFDD0"/>
+        <Border Grid.Column = "5" Grid.Row="3" Background="#FFFDD0"/>
+        <Border Grid.Column = "7" Grid.Row="3" Background="#FFFDD0"/>
+
+        <Border Grid.Column = "0" Grid.Row="4" Background="#FFFDD0"/>
+        <Border Grid.Column = "2" Grid.Row="4" Background="#FFFDD0"/>
+        <Border x:Name="e4" Grid.Column = "4" Grid.Row="4" Background="#FFFDD0"/>
+        <Border Grid.Column = "6" Grid.Row="4" Background="#FFFDD0"/>
+
+        <Border Grid.Column = "1" Grid.Row="5" Background="#FFFDD0"/>
+        <Border Grid.Column = "3" Grid.Row="5" Background="#FFFDD0"/>
+        <Border Grid.Column = "5" Grid.Row="5" Background="#FFFDD0"/>
+        <Border Grid.Column = "7" Grid.Row="5" Background="#FFFDD0"/>
+
+        <Border Grid.Column = "0" Grid.Row="6" Background="#FFFDD0"/>
+        <Border Grid.Column = "2" Grid.Row="6" Background="#FFFDD0"/>
+        <Border Grid.Column = "4" Grid.Row="6" Background="#FFFDD0"/>
+        <Border Grid.Column = "6" Grid.Row="6" Background="#FFFDD0"/>
+
+        <Border Grid.Column = "1" Grid.Row="7" Background="#FFFDD0"/>
+        <Border Grid.Column = "3" Grid.Row="7" Background="#FFFDD0"/>
+        <Border Grid.Column = "5" Grid.Row="7" Background="#FFFDD0"/>
+        <Border Grid.Column = "7" Grid.Row="7" Background="#FFFDD0"/>
+
+        <Image x:Name="BlackPawn0" Grid.Column = "0" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn0_MouseLeftButtonDown"/>
+        <Image x:Name="BlackPawn1" Grid.Column = "1" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn1_MouseLeftButtonDown"/>
+        <Image x:Name="BlackPawn2" Grid.Column = "2" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn2_MouseLeftButtonDown"/>
+        <Image x:Name="BlackPawn3" Grid.Column = "3" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn3_MouseLeftButtonDown"/>
+        <Image x:Name="BlackPawn4" Grid.Column = "4" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn4_MouseLeftButtonDown"/>
+        <Image x:Name="BlackPawn5" Grid.Column = "5" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn5_MouseLeftButtonDown"/>
+        <Image x:Name="BlackPawn6" Grid.Column = "6" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn6_MouseLeftButtonDown"/>
+        <Image x:Name="BlackPawn7" Grid.Column = "7" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn7_MouseLeftButtonDown"/>
+
+        <Image x:Name="WhitePawn0"  Grid.Column = "0" Grid.Row="6" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhitePawn.png" MouseLeftButtonDown="WhitePawn0_MouseLeftButtonDown"/>
+        <Image x:Name="WhitePawn1" Grid.Column = "1" Grid.Row="6" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhitePawn.png" MouseLeftButtonDown="WhitePawn1_MouseLeftButtonDown"/>
+        <Image x:Name="WhitePawn2" Grid.Column = "2" Grid.Row="6" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhitePawn.png" MouseLeftButtonDown="WhitePawn2_MouseLeftButtonDown"/>
+        <Image x:Name="WhitePawn3" Grid.Column = "3" Grid.Row="6" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhitePawn.png" MouseLeftButtonDown="WhitePawn3_MouseLeftButtonDown"/>
+        <Image x:Name="WhitePawn4" Grid.Column = "4" Grid.Row="6" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhitePawn.png" MouseLeftButtonDown="WhitePawn4_MouseLeftButtonDown"/>
+        <Image x:Name="WhitePawn5" Grid.Column = "5" Grid.Row="6" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhitePawn.png" MouseLeftButtonDown="WhitePawn5_MouseLeftButtonDown"/>
+        <Image x:Name="WhitePawn6" Grid.Column = "6" Grid.Row="6" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhitePawn.png" MouseLeftButtonDown="WhitePawn6_MouseLeftButtonDown"/>
+        <Image x:Name="WhitePawn7" Grid.Column = "7" Grid.Row="6" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhitePawn.png" MouseLeftButtonDown="WhitePawn7_MouseLeftButtonDown"/>
+
+        <Image x:Name="WhiteKnight1" Grid.Column = "1" Grid.Row="7" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhiteKnight.png" MouseLeftButtonDown="WhiteKnight1_MouseLeftButtonDown"/>
+        <Image x:Name="WhiteKnight2" Grid.Column = "6" Grid.Row="7" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhiteKnight.png" MouseLeftButtonDown="WhiteKnight2_MouseLeftButtonDown"/>
+
+        <Image x:Name="BlackKnight2" Grid.Column = "6" Grid.Row="0" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackKnight.png" MouseLeftButtonDown="BlackKnight2_MouseLeftButtonDown"/>
+        <Image x:Name="BlackKnight1" Grid.Column = "1" Grid.Row="0" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackKnight.png" MouseLeftButtonDown="BlackKnight1_MouseLeftButtonDown"/>
+
+        <Image x:Name="WhiteBishop2" Grid.Column = "5" Grid.Row="7" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhiteBishop.png" MouseLeftButtonDown="WhiteBishop2_MouseLeftButtonDown"/>
+        <Image x:Name="WhiteBishop1" Grid.Column = "2" Grid.Row="7" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhiteBishop.png" MouseLeftButtonDown="WhiteBishop1_MouseLeftButtonDown"/>
+
+        <Image x:Name="BlackBishop2" Grid.Column = "5" Grid.Row="0" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackBishop.png" MouseLeftButtonDown="BlackBishop2_MouseLeftButtonDown"/>
+        <Image x:Name="BlackBishop1" Grid.Column = "2" Grid.Row="0" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackBishop.png" MouseLeftButtonDown="BlackBishop1_MouseLeftButtonDown"/>
+
+
+        <Image x:Name="WhiteRock1" Grid.Column = "0" Grid.Row="7" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhiteRook.png" MouseLeftButtonDown="WhiteRock1_MouseLeftButtonDown"/>
+        <Image x:Name="WhiteRock2" Grid.Column = "7" Grid.Row="7" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhiteRook.png" MouseLeftButtonDown="WhiteRock2_MouseLeftButtonDown"/>
+
+        <Image x:Name="BlackRock1" Grid.Column = "0" Grid.Row="0" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackRook.png" MouseLeftButtonDown="BlackRock1_MouseLeftButtonDown"/>
+        <Image x:Name="BlackRock2" Grid.Column = "7" Grid.Row="0" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackRook.png" MouseLeftButtonDown="BlackRock2_MouseLeftButtonDown"/>
+
+
+        <Image x:Name="WhiteKing" Grid.Column = "4" Grid.Row="7" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhiteKing.png" PreviewMouseLeftButtonUp="WhiteKing_PreviewMouseLeftButtonUp"/>
+        <Image x:Name="BlackKing" Grid.Column = "4" Grid.Row="0" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackKing.png" PreviewMouseLeftButtonUp="BlackKing_PreviewMouseLeftButtonUp"/>
+
+
+        <Image x:Name="WhiteQueen" Grid.Column = "3" Grid.Row="7" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhiteQueen.png" MouseLeftButtonDown="WhiteQueen_MouseLeftButtonDown"/>
+        <Image x:Name="BlackQueen" Grid.Column = "3" Grid.Row="0" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackQueen.png" MouseLeftButtonDown="BlackQueen_MouseLeftButtonDown"/>
+
+
+    </Grid>
+</Window>
