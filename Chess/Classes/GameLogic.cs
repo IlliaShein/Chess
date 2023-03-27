@@ -47,7 +47,7 @@ namespace Chess
                     {
                         if (Board.colorBoard[i, j] == CellColor.YELLOW)
                         {
-                            Board.MoveFigure(e, GameField, row, col, i , j);
+                             Board.MoveFigure(e, GameField, row, col, i, j);
                         }
                     }
                 }

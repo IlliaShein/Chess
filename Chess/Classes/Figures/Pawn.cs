@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -15,16 +16,27 @@ namespace Chess.Classes.Figures
         }
         public override void Select(Grid gameField, MouseButtonEventArgs e, ChessBoard.ChessBoard board)
         {
-            board.PaintBoardStandartColors(e, gameField);
-            board.PaintCellInYellow(gameField, e);
-            if (this.color == FigureColor.WHITE)
+            int row = Grid.GetRow((UIElement)e.Source);
+            int col = Grid.GetColumn((UIElement)e.Source);
+
+            if (board.colorBoard[row,col] == CellColor.RED)
             {
-                FiguresLogicProcessing.WhitePawnLogicProcessing(e, gameField, board);
+                board.AttackFigure(e, gameField, row, col);
             }
-            else //this.color == FigureColor.BLACK
+            else
             {
-                FiguresLogicProcessing.BlackPawnLogicProcessing(e, gameField, board);
-            }  
+                board.PaintBoardStandartColors(e, gameField);
+                board.PaintCellInYellow(gameField, e);
+
+                if (color == FigureColor.WHITE)
+                {
+                    FiguresLogicProcessing.WhitePawnLogicProcessing(e, gameField, board);
+                }
+                else //this.color == FigureColor.BLACK
+                {
+                    FiguresLogicProcessing.BlackPawnLogicProcessing(e, gameField, board);
+                }
+            }
         }
         protected override void MakeTurn()
         {

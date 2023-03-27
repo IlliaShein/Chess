@@ -17,7 +17,6 @@ namespace Chess.Classes
             if (((Pawn)board.board[row, col]).firstTurn == true)
             {
                 PaintCell(e, gameField, board, 2, 0);
-                ((Pawn)board.board[row, col]).firstTurn = false;
             }
         }
 
@@ -30,7 +29,6 @@ namespace Chess.Classes
             if (((Pawn)board.board[row, col]).firstTurn == true)
             {
                 PaintCell(e, gameField, board, -2, 0);
-                ((Pawn)board.board[row, col]).firstTurn = false;
             }
         }
 
@@ -171,7 +169,7 @@ namespace Chess.Classes
                 if (col - 1 != -1)
                 {
                     PaintCell(e, gameField, board, 0, i);
-                    if (IsCellRed(e, gameField, board, 0, i))
+                    if (IsCellRed(e, gameField, board, 0, i) || IsCellBrown(e, gameField, board, 0, i))
                     {
                         break;
                     }
@@ -194,7 +192,7 @@ namespace Chess.Classes
                 if (row - 1 != -1)
                 {
                     PaintCell(e, gameField, board, i, 0);
-                    if (IsCellRed(e, gameField, board, i, 0))
+                    if (IsCellRed(e, gameField, board, i, 0) || IsCellBrown(e, gameField, board, i, 0))
                     {
                         break;
                     }
@@ -217,7 +215,7 @@ namespace Chess.Classes
                 if (col + 1 != 8)
                 {
                     PaintCell(e, gameField, board, 0, -i);
-                    if (IsCellRed(e, gameField, board, 0, -i))
+                    if (IsCellRed(e, gameField, board, 0, -i) || IsCellBrown(e, gameField, board, 0, -i))
                     {
                         break;
                     }
@@ -240,7 +238,7 @@ namespace Chess.Classes
                 if (row + 1 != 8)
                 {
                     PaintCell(e, gameField, board, -i, 0);
-                    if (IsCellRed(e, gameField, board, -i, 0))
+                    if (IsCellRed(e, gameField, board, -i, 0) || IsCellBrown(e, gameField, board, -i, 0))
                     {
                         break;
                     }
@@ -263,7 +261,7 @@ namespace Chess.Classes
                 if (row - 1 != -1 && col - 1 != -1)
                 {
                     PaintCell(e, gameField, board, i, i);
-                    if (IsCellRed(e, gameField, board, i, i))
+                    if (IsCellRed(e, gameField, board, i, i) || IsCellBrown(e, gameField, board, i, i))
                     {
                         break;
                     }
@@ -287,7 +285,7 @@ namespace Chess.Classes
                 if (row + 1 != 8 && col + 1 != 8)
                 {
                     PaintCell(e, gameField, board, -i, -i);
-                    if (IsCellRed(e, gameField, board, -i, -i))
+                    if (IsCellRed(e, gameField, board, -i, -i) || IsCellBrown(e, gameField, board, -i, -i))
                     {
                         break;
                     }
@@ -311,7 +309,7 @@ namespace Chess.Classes
                 if (row + 1 != 8 && col - 1 != -1)
                 {
                     PaintCell(e, gameField, board, -i, i);
-                    if (IsCellRed(e, gameField, board, -i, i))
+                    if (IsCellRed(e, gameField, board, -i, i) || IsCellBrown(e, gameField, board, -i, i))
                     {
                         break;
                     }
@@ -335,7 +333,7 @@ namespace Chess.Classes
                 if (row - 1 != -1 && col + 1 != 8)
                 {
                     PaintCell(e, gameField, board, i, -i);
-                    if (IsCellRed(e, gameField, board, i, -i))
+                    if (IsCellRed(e, gameField, board, i, -i) || IsCellBrown(e, gameField, board, i, -i))
                     {
                         break;
                     }
@@ -442,7 +440,25 @@ namespace Chess.Classes
             {
                 return false;
             }
+        }
 
+        private static bool IsCellBrown(MouseButtonEventArgs e, Grid gameField, ChessBoard.ChessBoard board, int rowOffsetFromChosenCell = 0, int colOffsetFromChosenCell = 0)
+        {
+            int row = Grid.GetRow((UIElement)e.Source);
+            int col = Grid.GetColumn((UIElement)e.Source);
+
+            Border cell = gameField.Children
+                .Cast<UIElement>()
+                .First(e => Grid.GetRow(e) + rowOffsetFromChosenCell == row && Grid.GetColumn(e) + colOffsetFromChosenCell == col) as Border;
+
+            if (board.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] == CellColor.EMPTY)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

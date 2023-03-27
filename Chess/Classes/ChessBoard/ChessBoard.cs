@@ -85,6 +85,15 @@ namespace Chess.Classes.ChessBoard
 
         public void MoveFigure(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
         {
+            if (board[fromRow, fromCol] is Pawn)
+            {
+                ((Pawn)board[fromRow, fromCol]).firstTurn = false;
+            }
+            else if(board[fromRow, fromCol] is King)
+            {
+                ((King)board[fromRow, fromCol]).firstTurn = false;
+            }
+
             board[toRow, toCol] = board[fromRow, fromCol];
             board[fromRow, fromCol] = null;
 
@@ -95,6 +104,49 @@ namespace Chess.Classes.ChessBoard
             Grid.SetRow(image, toRow);
             Grid.SetColumn(image, toCol);
             PaintBoardStandartColors(e, GameField);
+        }
+
+        public void PlaceOneFigureOnAnother(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
+        {
+            if (board[fromRow, fromCol] is Pawn)
+            {
+                ((Pawn)board[fromRow, fromCol]).firstTurn = false;
+            }
+            else if (board[fromRow, fromCol] is King)
+            {
+                ((King)board[fromRow, fromCol]).firstTurn = false;
+            }
+
+            board[toRow, toCol] = board[fromRow, fromCol];
+            board[fromRow, fromCol] = null;
+
+            Image attakedImage = GameField.Children
+             .Cast<UIElement>()
+             .FirstOrDefault(e => e is Image && Grid.GetRow(e) == toRow && Grid.GetColumn(e) == toCol) as Image;
+
+            GameField.Children.Remove(attakedImage);
+
+            Image image = GameField.Children
+             .Cast<UIElement>()
+             .FirstOrDefault(e => e is Image && Grid.GetRow(e) == fromRow && Grid.GetColumn(e) == fromCol) as Image;
+
+            Grid.SetRow(image, toRow);
+            Grid.SetColumn(image, toCol);
+            PaintBoardStandartColors(e, GameField);
+        }
+
+        public void AttackFigure(MouseButtonEventArgs e, Grid gameField, int row , int col)
+        {
+            for (int i = 0; i < colorBoard.GetLength(0); i++)
+            {
+                for (int j = 0; j < colorBoard.GetLength(1); j++)
+                {
+                    if (colorBoard[i, j] == CellColor.YELLOW)
+                    {
+                        PlaceOneFigureOnAnother(e, gameField, row, col, i, j);
+                    }
+                }
+            }
         }
 
         private void FillBoard()
