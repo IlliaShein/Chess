@@ -17,13 +17,13 @@ namespace Chess.Classes.Figures
         {
             if(this.color == FigureColor.WHITE)
             {
-                GameLogic.PaintCellInYellow(gameField, e, board);
-                GameLogic.WhitePawnLogicProcessing(e, gameField, board);
+                board.PaintCellInYellow(gameField, e);
+                FiguresLogicProcessing.WhitePawnLogicProcessing(e, gameField, board);
             }
             else //this.color == FigureColor.BLACK
             {
-                GameLogic.PaintCellInYellow(gameField, e, board);
-                GameLogic.BlackPawnLogicProcessing(e, gameField, board);
+                board.PaintCellInYellow(gameField, e);
+                FiguresLogicProcessing.BlackPawnLogicProcessing(e, gameField, board);
             }  
         }
         protected override void MakeTurn()

@@ -1,4 +1,8 @@
 ﻿using Chess.Classes.Figures;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Chess.Classes.ChessBoard
 {
@@ -17,6 +21,81 @@ namespace Chess.Classes.ChessBoard
             FillColorBoard();
         }
 
+        public void PaintBoardStandartColors(MouseButtonEventArgs e, Grid GameField)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    Border cell = GameField.Children
+                    .Cast<UIElement>()
+                    .First(e => Grid.GetRow(e) == i && Grid.GetColumn(e) == j) as Border;
+
+                    if (i % 2 == 0)
+                    {
+                        if (j % 2 == 0)
+                        {
+                            cell.Background = ChessColors.GetStandartLightRGB();
+                        }
+                        else
+                        {
+                            cell.Background = ChessColors.GetStandartDarkRGB();
+                        }
+                    }
+                    else
+                    {
+                        if (j % 2 == 0)
+                        {
+                            cell.Background = ChessColors.GetStandartDarkRGB();
+                        }
+                        else
+                        {
+                            cell.Background = ChessColors.GetStandartLightRGB();
+                        }
+                    }
+                }
+            }
+            ClearColorBoard();
+        }
+
+        public void ClearColorBoard()
+        {
+            for (int i = 0; i < colorBoard.GetLength(0); i++)
+            {
+                for (int j = 0; j < colorBoard.GetLength(1); j++)
+                {
+                    colorBoard[i, j] = CellColor.EMPTY;
+                }
+            }
+        }
+
+        public void PaintCellInYellow(Grid gameField, MouseButtonEventArgs e)
+        {
+            int row = Grid.GetRow((UIElement)e.Source);
+            int col = Grid.GetColumn((UIElement)e.Source);
+
+            Border cell = gameField.Children
+              .Cast<UIElement>()
+              .First(e => Grid.GetRow(e) == row && Grid.GetColumn(e) == col) as Border;
+
+
+            cell.Background = ChessColors.GetYellowRGB();
+            colorBoard[row, col] = CellColor.YELLOW;
+        }
+
+        public void MoveFigure(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
+        {
+            board[toRow, toCol] = board[fromRow, fromCol];
+            board[fromRow, fromCol] = null;
+
+            Image image = GameField.Children
+             .Cast<UIElement>()
+             .FirstOrDefault(e => e is Image && Grid.GetRow(e) == fromRow && Grid.GetColumn(e) == fromCol) as Image;
+
+            Grid.SetRow(image, toRow);
+            Grid.SetColumn(image, toCol);
+            PaintBoardStandartColors(e, GameField);
+        }
 
         private void FillBoard()
         {
@@ -50,6 +129,7 @@ namespace Chess.Classes.ChessBoard
             board[7, 3] = new King(FigureColor.WHITE);
             board[7, 4] = new Queen(FigureColor.WHITE);
         }
+
         private void FillColorBoard()
         {
             for (int i = 0; i < colorBoard.GetLength(0); i++)

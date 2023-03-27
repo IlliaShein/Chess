@@ -7,9 +7,4 @@
         GREEN,
         RED
     }
-    public enum FigureColor
-    {
-        WHITE,
-        BLACK
-    }
 }

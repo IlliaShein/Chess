@@ -13,8 +13,8 @@ namespace Chess.Classes.Figures
         }
         public override void Select(Grid gameField, MouseButtonEventArgs e, ChessBoard.ChessBoard board)
         {
-            GameLogic.PaintCellInYellow(gameField, e, board);
-            GameLogic.RockLogicProcessing(e, gameField, board);
+            board.PaintCellInYellow(gameField, e);
+            FiguresLogicProcessing.RockLogicProcessing(e, gameField, board);
         }
         protected override void MakeTurn()
         {

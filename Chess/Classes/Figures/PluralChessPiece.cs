@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Chess.Classes.Figures
 {
-    abstract class PluralChessPiece : ChessPiece
+    abstract public class PluralChessPiece : ChessPiece
     {
         public int number;
 
