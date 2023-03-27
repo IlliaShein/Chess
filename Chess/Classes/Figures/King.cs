@@ -16,7 +16,11 @@ namespace Chess.Classes.Figures
             wasUnderMate = false;
         }
 
-        public override void MakeTurn()
+        public override void Select()
+        {
+            throw new NotImplementedException();
+        }
+        protected override void MakeTurn()
         {
             throw new NotImplementedException();
         }

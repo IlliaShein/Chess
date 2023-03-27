@@ -6,7 +6,7 @@ namespace Chess.Classes.Figures
 {
     abstract class PluralChessPiece : ChessPiece
     {
-        protected int number;
+        public int number;
 
         protected PluralChessPiece(FigureColor color, int number)
             : base(color)

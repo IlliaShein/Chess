@@ -11,7 +11,11 @@ namespace Chess.Classes.Figures
         {
 
         }
-        public override void MakeTurn()
+        public override void Select()
+        {
+            throw new NotImplementedException();
+        }
+        protected override void MakeTurn()
         {
             throw new NotImplementedException();
         }

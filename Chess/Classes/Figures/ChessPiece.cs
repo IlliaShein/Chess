@@ -6,7 +6,7 @@ namespace Chess.Classes.Figures
 {
     abstract class ChessPiece
     {
-        protected FigureColor color;
+        public FigureColor color;
         protected bool isChoosen;
 
         protected ChessPiece(FigureColor color)
@@ -16,7 +16,8 @@ namespace Chess.Classes.Figures
             isChoosen = false;
         }
 
-        public abstract void MakeTurn();
+        public abstract void Select();
+        protected abstract void MakeTurn();
     }
 
 

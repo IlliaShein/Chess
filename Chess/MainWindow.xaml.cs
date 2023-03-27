@@ -1,4 +1,6 @@
 ﻿using Chess.Classes;
+using Chess.Classes.ChessBoard;
+using Chess.Classes.Figures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,8 @@ namespace Chess
 {
     public partial class MainWindow : Window
     {
+        ChessBoard Board = new ChessBoard();
+
         public FiguresBoard board = new FiguresBoard();
         public MainWindow()
         {
@@ -28,190 +32,222 @@ namespace Chess
 
         private void WhitePawn0_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.WHITE, 0);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
         }
 
         private void WhitePawn1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.WHITE, 1);
+            /* GameLogic.PaintCellInYellow(GameField, e, board);
+             GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
         }
 
         private void WhitePawn2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.WHITE, 2);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
         }
 
         private void WhitePawn3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.WHITE, 3);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
         }
 
         private void WhitePawn4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.WHITE, 4);
+           /* GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
         }
 
         private void WhitePawn5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.WHITE, 5);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
         }
 
         private void WhitePawn6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.WHITE, 6);
+           /* GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
         }
 
         private void WhitePawn7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.WHITE, 7);
+           /* GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackPawn0_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.BLACK, 0);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackPawn1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.BLACK, 1);
+           /* GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackPawn2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.BLACK, 2);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackPawn3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.BLACK, 3);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackPawn4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.BLACK, 4);
+            /* GameLogic.PaintCellInYellow(GameField, e, board);
+             GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackPawn5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.BLACK, 5);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackPawn6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.BLACK, 6);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackPawn7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);
+            SelectPiece<Pawn>(FigureColor.BLACK, 7);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
         }
         private void WhiteKnight1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.KnightLogicProcessing(e, GameField, board);
+            SelectPiece<Knight>(FigureColor.WHITE, 0);
+           /* GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.KnightLogicProcessing(e, GameField, board);*/
         }
 
         private void WhiteKnight2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.KnightLogicProcessing(e, GameField, board);
+            SelectPiece<Knight>(FigureColor.WHITE, 1);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.KnightLogicProcessing(e, GameField, board);*/
         }
         private void BlackKnight1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.KnightLogicProcessing(e, GameField, board);
+            SelectPiece<Knight>(FigureColor.BLACK, 0);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.KnightLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackKnight2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.KnightLogicProcessing(e, GameField, board);
+            SelectPiece<Knight>(FigureColor.BLACK, 1);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.KnightLogicProcessing(e, GameField, board);*/
         }
 
         private void WhiteBishop1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BishopLogicProcessing(e, GameField, board);
+            SelectPiece<Bishop>(FigureColor.WHITE, 0);
+           /* GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.BishopLogicProcessing(e, GameField, board);*/
         }
 
         private void WhiteBishop2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BishopLogicProcessing(e, GameField, board);
+            SelectPiece<Bishop>(FigureColor.WHITE, 1);
+           /* GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.BishopLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackBishop1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BishopLogicProcessing(e, GameField, board);
+            SelectPiece<Bishop>(FigureColor.BLACK, 0);
+          /*  GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.BishopLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackBishop2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BishopLogicProcessing(e, GameField, board);
+            SelectPiece<Bishop>(FigureColor.BLACK, 1);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.BishopLogicProcessing(e, GameField, board);*/
         }
 
         private void WhiteRock1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.RockLogicProcessing(e, GameField, board);
+            SelectPiece<Rook>(FigureColor.WHITE, 0);
+            /* GameLogic.PaintCellInYellow(GameField, e, board);
+             GameLogic.RockLogicProcessing(e, GameField, board);*/
         }
         private void WhiteRock2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.RockLogicProcessing(e, GameField, board);
+            SelectPiece<Rook>(FigureColor.WHITE, 1);
+          /*  GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.RockLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackRock1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.RockLogicProcessing(e, GameField, board);
+            SelectPiece<Rook>(FigureColor.BLACK, 0);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.RockLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackRock2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.RockLogicProcessing(e, GameField, board);
+            SelectPiece<Rook>(FigureColor.BLACK, 1);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.RockLogicProcessing(e, GameField, board);*/
         }
 
         private void WhiteQueen_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.QueenLogicProcessing(e, GameField, board);
+            SelectPiece<Queen>(FigureColor.WHITE);
+            /*  GameLogic.PaintCellInYellow(GameField, e, board);
+              GameLogic.QueenLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackQueen_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.QueenLogicProcessing(e, GameField, board);
+            SelectPiece<Queen>(FigureColor.BLACK);
+           /* GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.QueenLogicProcessing(e, GameField, board);*/
         }
         private void WhiteKing_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.KingLogicProcessing(e, GameField, board);
+            SelectPiece<King>(FigureColor.WHITE);
+            /*GameLogic.PaintCellInYellow(GameField, e, board);
+            GameLogic.KingLogicProcessing(e, GameField, board);*/
         }
 
         private void BlackKing_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.KingLogicProcessing(e, GameField, board);
+            SelectPiece<Queen>(FigureColor.BLACK);
+            /* GameLogic.PaintCellInYellow(GameField, e, board);
+             GameLogic.KingLogicProcessing(e, GameField, board);*/
         }
 
         private void GameField_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -357,5 +393,31 @@ namespace Chess
 
 
         }
+
+        private void SelectPiece<T>(FigureColor color, int number) where T : PluralChessPiece
+        {
+            foreach (ChessPiece figure in Board.board)
+            {
+                if (figure is T && ((T)figure).color == color && ((T)figure).number == number)
+                {
+                    T Figure = (T)figure;
+                    Figure.Select();
+                }
+            }
+        }
+        private void SelectPiece<T>(FigureColor color) where T : ChessPiece
+        {
+            foreach (ChessPiece figure in Board.board)
+            {
+                if (figure is T && ((T)figure).color == color)
+                {
+                    T Figure = (T)figure;
+                    Figure.Select();
+                }
+            }
+        }
+
+
+
     }
 }

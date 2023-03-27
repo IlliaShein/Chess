@@ -7,7 +7,7 @@ namespace Chess.Classes.ChessBoard
 {
     class ChessBoard
     {
-        ChessPiece[,] board;
+        public ChessPiece[,] board;
 
         public ChessBoard()
         {
