@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Chess.Classes.Figures
 {
-    abstract class ChessPiece
+    abstract public class ChessPiece
     {
         public FigureColor color;
         protected bool isChoosen;
@@ -16,7 +18,7 @@ namespace Chess.Classes.Figures
             isChoosen = false;
         }
 
-        public abstract void Select();
+        public abstract void Select(Grid gameField, MouseButtonEventArgs e, ChessBoard.ChessBoard board);
         protected abstract void MakeTurn();
     }
 

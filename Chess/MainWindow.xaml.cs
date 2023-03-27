@@ -24,7 +24,6 @@ namespace Chess
     {
         ChessBoard Board = new ChessBoard();
 
-        public FiguresBoard board = new FiguresBoard();
         public MainWindow()
         {
             InitializeComponent();
@@ -32,222 +31,158 @@ namespace Chess
 
         private void WhitePawn0_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.WHITE, 0);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.WHITE, 0 , e);
         }
 
         private void WhitePawn1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.WHITE, 1);
-            /* GameLogic.PaintCellInYellow(GameField, e, board);
-             GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.WHITE, 1, e);
         }
 
         private void WhitePawn2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.WHITE, 2);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.WHITE, 2, e);
         }
 
         private void WhitePawn3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.WHITE, 3);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.WHITE, 3, e);
         }
 
         private void WhitePawn4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.WHITE, 4);
-           /* GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.WHITE, 4, e);
         }
 
         private void WhitePawn5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.WHITE, 5);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.WHITE, 5, e);
         }
 
         private void WhitePawn6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.WHITE, 6);
-           /* GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.WHITE, 6, e);
         }
 
         private void WhitePawn7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.WHITE, 7);
-           /* GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.WhitePawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.WHITE, 7, e);
         }
 
         private void BlackPawn0_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.BLACK, 0);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.BLACK, 0, e);
         }
 
         private void BlackPawn1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.BLACK, 1);
-           /* GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.BLACK, 1, e);
         }
 
         private void BlackPawn2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.BLACK, 2);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.BLACK, 2, e);
         }
 
         private void BlackPawn3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.BLACK, 3);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.BLACK, 3, e);
         }
 
         private void BlackPawn4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.BLACK, 4);
-            /* GameLogic.PaintCellInYellow(GameField, e, board);
-             GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.BLACK, 4, e);
         }
 
         private void BlackPawn5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.BLACK, 5);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.BLACK, 5, e);
         }
 
         private void BlackPawn6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.BLACK, 6);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.BLACK, 6, e);
         }
 
         private void BlackPawn7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Pawn>(FigureColor.BLACK, 7);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BlackPawnLogicProcessing(e, GameField, board);*/
+            SelectPiece<Pawn>(FigureColor.BLACK, 7, e);
         }
         private void WhiteKnight1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Knight>(FigureColor.WHITE, 0);
-           /* GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.KnightLogicProcessing(e, GameField, board);*/
+            SelectPiece<Knight>(FigureColor.WHITE, 0, e);
         }
 
         private void WhiteKnight2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Knight>(FigureColor.WHITE, 1);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.KnightLogicProcessing(e, GameField, board);*/
+            SelectPiece<Knight>(FigureColor.WHITE, 1, e);
         }
         private void BlackKnight1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Knight>(FigureColor.BLACK, 0);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.KnightLogicProcessing(e, GameField, board);*/
+            SelectPiece<Knight>(FigureColor.BLACK, 0, e);
         }
 
         private void BlackKnight2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Knight>(FigureColor.BLACK, 1);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.KnightLogicProcessing(e, GameField, board);*/
+            SelectPiece<Knight>(FigureColor.BLACK, 1, e);
         }
 
         private void WhiteBishop1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Bishop>(FigureColor.WHITE, 0);
-           /* GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BishopLogicProcessing(e, GameField, board);*/
+            SelectPiece<Bishop>(FigureColor.WHITE, 0, e);
         }
 
         private void WhiteBishop2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Bishop>(FigureColor.WHITE, 1);
-           /* GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BishopLogicProcessing(e, GameField, board);*/
+            SelectPiece<Bishop>(FigureColor.WHITE, 1, e);
         }
 
         private void BlackBishop1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Bishop>(FigureColor.BLACK, 0);
-          /*  GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BishopLogicProcessing(e, GameField, board);*/
+            SelectPiece<Bishop>(FigureColor.BLACK, 0, e);
         }
 
         private void BlackBishop2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Bishop>(FigureColor.BLACK, 1);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.BishopLogicProcessing(e, GameField, board);*/
+            SelectPiece<Bishop>(FigureColor.BLACK, 1, e);
         }
 
         private void WhiteRock1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Rook>(FigureColor.WHITE, 0);
-            /* GameLogic.PaintCellInYellow(GameField, e, board);
-             GameLogic.RockLogicProcessing(e, GameField, board);*/
+            SelectPiece<Rook>(FigureColor.WHITE, 0, e);
         }
         private void WhiteRock2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Rook>(FigureColor.WHITE, 1);
-          /*  GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.RockLogicProcessing(e, GameField, board);*/
+            SelectPiece<Rook>(FigureColor.WHITE, 1, e);
         }
 
         private void BlackRock1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Rook>(FigureColor.BLACK, 0);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.RockLogicProcessing(e, GameField, board);*/
+            SelectPiece<Rook>(FigureColor.BLACK, 0, e);
         }
 
         private void BlackRock2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Rook>(FigureColor.BLACK, 1);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.RockLogicProcessing(e, GameField, board);*/
+            SelectPiece<Rook>(FigureColor.BLACK, 1, e);
         }
 
         private void WhiteQueen_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Queen>(FigureColor.WHITE);
-            /*  GameLogic.PaintCellInYellow(GameField, e, board);
-              GameLogic.QueenLogicProcessing(e, GameField, board);*/
+            SelectPiece<Queen>(FigureColor.WHITE, e);
         }
 
         private void BlackQueen_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Queen>(FigureColor.BLACK);
-           /* GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.QueenLogicProcessing(e, GameField, board);*/
+            SelectPiece<Queen>(FigureColor.BLACK, e);
         }
         private void WhiteKing_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<King>(FigureColor.WHITE);
-            /*GameLogic.PaintCellInYellow(GameField, e, board);
-            GameLogic.KingLogicProcessing(e, GameField, board);*/
+            SelectPiece<King>(FigureColor.WHITE, e);
         }
 
         private void BlackKing_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            SelectPiece<Queen>(FigureColor.BLACK);
-            /* GameLogic.PaintCellInYellow(GameField, e, board);
-             GameLogic.KingLogicProcessing(e, GameField, board);*/
+            SelectPiece<King>(FigureColor.BLACK, e);
         }
 
         private void GameField_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -255,13 +190,33 @@ namespace Chess
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            if (board.ColorsBoard[row, col] == CellColor.GREEN || board.ColorsBoard[row, col] == CellColor.RED)
+            if (Board.colorBoard[row, col] == CellColor.GREEN || Board.colorBoard[row, col] == CellColor.RED)
             {
-                string figureName = GetFigureNameFromPosition();
-                MoveFigure(e, figureName);
+                for (int i = 0; i < Board.colorBoard.GetLength(0); i++)
+                {
+                    for (int j = 0; j < Board.colorBoard.GetLength(1); j++)
+                    {
+                        if(Board.colorBoard[i,j] == CellColor.YELLOW)
+                        {
+                            Board.board[row, col] = Board.board[i, j];
+                            Board.board[i, j] = null;
+
+                            Image image = GameField.Children
+                             .Cast<UIElement>()
+                             .FirstOrDefault(e => e is Image && Grid.GetRow(e) == i && Grid.GetColumn(e) == j) as Image;
+
+                            Grid.SetRow(image, row);
+                            Grid.SetColumn(image, col);
+                            PaintBoardStandartColors(e);
+                        }
+                    }
+                }
+            }
+            else if(Board.colorBoard[row, col] != CellColor.YELLOW)
+            {
                 PaintBoardStandartColors(e);
             }
-            
+
         }
 
         private void PaintBoardStandartColors(MouseButtonEventArgs e)
@@ -271,8 +226,8 @@ namespace Chess
                 for (int j = 0; j < 8; j++)
                 {
                     Border cell = GameField.Children
-                .Cast<UIElement>()
-                .First(e => Grid.GetRow(e) == i && Grid.GetColumn(e) == j) as Border;
+                    .Cast<UIElement>()
+                    .First(e => Grid.GetRow(e) == i && Grid.GetColumn(e) == j) as Border;
 
                     if(i%2 == 0)
                     {
@@ -303,116 +258,34 @@ namespace Chess
         }
         private void ClearColorBoard()
         {
-            for (int i = 0; i < board.ColorsBoard.GetLength(0); i++)
+            for (int i = 0; i < Board.colorBoard.GetLength(0); i++)
             {
-                for (int j = 0; j < board.ColorsBoard.GetLength(1); j++)
+                for (int j = 0; j < Board.colorBoard.GetLength(1); j++)
                 {
-                    board.ColorsBoard[i, j] = CellColor.EMPTY;
+                    Board.colorBoard[i, j] = CellColor.EMPTY;
                 }
             }        
         }
-        private string GetFigureNameFromPosition()
-        {
-            Figure figure = GetChoosenFigure();
 
-            if(figure.color == FigureColor.WHITE)
-            {
-                return "White" + NormalizeFigureName(figure.name); 
-            }
-            else // figure.color == FigureColor.BLACK
-            {
-                return "Black" + NormalizeFigureName(figure.name);
-            }
-        }
-
-        private Figure GetChoosenFigure()
-        {
-            Figure figure = null;
-
-            for (int i = 0; i < board.figuresBoard.GetLength(0); i++)
-            {
-                for (int j = 0; j < board.figuresBoard.GetLength(1); j++)
-                {
-                    if (board.ColorsBoard[i, j] == CellColor.YELLOW)
-                    {
-                        figure = board.figuresBoard[i, j];
-                    }
-                }
-            }
-
-            return figure;
-        }
-
-        private string NormalizeFigureName(FigureName figureName)
-        {
-            string normalizedName = Convert.ToString(figureName);
-            normalizedName = normalizedName[0] + normalizedName.Substring(1).ToLower();
-
-            return normalizedName;
-        }
-
-        private void MoveFigure(MouseButtonEventArgs e , string figureName)
-        {
-            int row = Grid.GetRow((UIElement)e.Source);
-            int col = Grid.GetColumn((UIElement)e.Source);
-
-            Image image = GameField.Children
-                .Cast<UIElement>()
-                .FirstOrDefault(e => e is Image && ((Image)e).Name == figureName) as Image;
-
-            Grid.SetRow(image, row);
-            Grid.SetColumn(image, col);
-
-            string name = figureName.Substring(5).ToUpper();
-            bool found = false;
-            for (int i = 0; i < board.figuresBoard.GetLength(0); i++)
-            {
-                for (int j = 0; j < board.figuresBoard.GetLength(1); j++)
-                {
-                    if(board.figuresBoard[i, j] != null 
-                        && Convert.ToString(board.figuresBoard[i, j].name) == name)
-                    {
-                        if(figureName[0] != Convert.ToString(board.figuresBoard[i, j].color)[0])
-                        {
-                            continue;
-                        }
-
-                        board.figuresBoard[row, col] = new Figure(board.figuresBoard[i, j]);
-                        board.figuresBoard[row, col].startPosition = false;
-                        board.figuresBoard[i, j] = null;
-
-                        found = true;
-                        break;
-                    }                 
-                }
-                if (found)
-                {
-                    break;
-                }
-            }
-
-
-        }
-
-        private void SelectPiece<T>(FigureColor color, int number) where T : PluralChessPiece
+        private void SelectPiece<T>(FigureColor color, int number, MouseButtonEventArgs e) where T : PluralChessPiece
         {
             foreach (ChessPiece figure in Board.board)
             {
                 if (figure is T && ((T)figure).color == color && ((T)figure).number == number)
                 {
                     T Figure = (T)figure;
-                    Figure.Select();
+                    Figure.Select(GameField, e, Board);
                 }
             }
         }
-        private void SelectPiece<T>(FigureColor color) where T : ChessPiece
+        private void SelectPiece<T>(FigureColor color, MouseButtonEventArgs e) where T : ChessPiece
         {
             foreach (ChessPiece figure in Board.board)
             {
                 if (figure is T && ((T)figure).color == color)
                 {
                     T Figure = (T)figure;
-                    Figure.Select();
+                    Figure.Select(GameField, e, Board);
                 }
             }
         }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Chess.Classes.Figures
 {
@@ -11,9 +13,10 @@ namespace Chess.Classes.Figures
         {
 
         }
-        public override void Select()
+        public override void Select(Grid gameField, MouseButtonEventArgs e, ChessBoard.ChessBoard board)
         {
-            throw new NotImplementedException();
+            GameLogic.PaintCellInYellow(gameField, e, board);
+            GameLogic.RockLogicProcessing(e, gameField, board);
         }
         protected override void MakeTurn()
         {
