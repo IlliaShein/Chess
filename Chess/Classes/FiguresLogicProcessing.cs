@@ -17,6 +17,7 @@ namespace Chess.Classes
             if (((Pawn)board.board[row, col]).firstTurn == true)
             {
                 PaintCell(e, gameField, board, 2, 0);
+                ((Pawn)board.board[row, col]).firstTurn = false;
             }
         }
 
@@ -29,6 +30,7 @@ namespace Chess.Classes
             if (((Pawn)board.board[row, col]).firstTurn == true)
             {
                 PaintCell(e, gameField, board, -2, 0);
+                ((Pawn)board.board[row, col]).firstTurn = false;
             }
         }
 

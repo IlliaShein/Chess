@@ -15,14 +15,14 @@ namespace Chess.Classes.Figures
         }
         public override void Select(Grid gameField, MouseButtonEventArgs e, ChessBoard.ChessBoard board)
         {
-            if(this.color == FigureColor.WHITE)
+            board.PaintBoardStandartColors(e, gameField);
+            board.PaintCellInYellow(gameField, e);
+            if (this.color == FigureColor.WHITE)
             {
-                board.PaintCellInYellow(gameField, e);
                 FiguresLogicProcessing.WhitePawnLogicProcessing(e, gameField, board);
             }
             else //this.color == FigureColor.BLACK
             {
-                board.PaintCellInYellow(gameField, e);
                 FiguresLogicProcessing.BlackPawnLogicProcessing(e, gameField, board);
             }  
         }

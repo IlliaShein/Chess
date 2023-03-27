@@ -14,6 +14,7 @@ namespace Chess.Classes.Figures
         }
         public override void Select(Grid gameField, MouseButtonEventArgs e, ChessBoard.ChessBoard board)
         {
+            board.PaintBoardStandartColors(e, gameField);
             board.PaintCellInYellow(gameField, e);
             FiguresLogicProcessing.QueenLogicProcessing(e, gameField, board);
         }
