@@ -4,15 +4,18 @@ using System.Text;
 
 namespace Chess.Classes.Figures
 {
-    class Pawn : PluralChessPiece
+    class King : ChessPiece
     {
         bool firstTurn;
+        bool wasUnderMate;
 
-        public Pawn(FigureColor color, FigureLocation location , int number)
-            : base(color , location , number)
+        public King(FigureColor color, FigureLocation location)
+            : base(color , location)
         {
             firstTurn = true;
+            wasUnderMate = false;
         }
+
         public override void MakeTurn()
         {
             throw new NotImplementedException();

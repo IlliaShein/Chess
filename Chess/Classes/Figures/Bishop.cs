@@ -4,14 +4,12 @@ using System.Text;
 
 namespace Chess.Classes.Figures
 {
-    class Pawn : PluralChessPiece
+    class Bishop : PluralChessPiece
     {
-        bool firstTurn;
-
-        public Pawn(FigureColor color, FigureLocation location , int number)
-            : base(color , location , number)
+        public Bishop(FigureColor color, FigureLocation location, int number)
+           : base(color, location, number)
         {
-            firstTurn = true;
+
         }
         public override void MakeTurn()
         {
