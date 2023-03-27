@@ -147,8 +147,8 @@
         <Image x:Name="BlackRock2" Grid.Column = "7" Grid.Row="0" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackRook.png" MouseLeftButtonDown="BlackRock2_MouseLeftButtonDown"/>
 
 
-        <Image x:Name="WhiteKing" Grid.Column = "4" Grid.Row="7" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhiteKing.png" PreviewMouseLeftButtonUp="WhiteKing_PreviewMouseLeftButtonUp"/>
-        <Image x:Name="BlackKing" Grid.Column = "4" Grid.Row="0" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackKing.png" PreviewMouseLeftButtonUp="BlackKing_PreviewMouseLeftButtonUp"/>
+        <Image x:Name="WhiteKing" Grid.Column = "4" Grid.Row="7" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhiteKing.png" MouseLeftButtonDown="WhiteKing_MouseLeftButtonDown"/>
+        <Image x:Name="BlackKing" Grid.Column = "4" Grid.Row="0" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackKing.png" MouseLeftButtonDown="BlackKing_MouseLeftButtonDown"/>
 
 
         <Image x:Name="WhiteQueen" Grid.Column = "3" Grid.Row="7" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhiteQueen.png" MouseLeftButtonDown="WhiteQueen_MouseLeftButtonDown"/>

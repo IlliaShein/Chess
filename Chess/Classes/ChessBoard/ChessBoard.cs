@@ -1,7 +1,4 @@
 ﻿using Chess.Classes.Figures;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Chess.Classes.ChessBoard
 {

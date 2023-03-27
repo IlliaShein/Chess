@@ -1,22 +1,9 @@
-﻿using Chess.Classes;
-using Chess.Classes.ChessBoard;
+﻿using Chess.Classes.ChessBoard;
 using Chess.Classes.Figures;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Chess
 {
@@ -117,6 +104,7 @@ namespace Chess
         {
             SelectPiece<Knight>(FigureColor.WHITE, 1, e);
         }
+
         private void BlackKnight1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             SelectPiece<Knight>(FigureColor.BLACK, 0, e);
@@ -151,6 +139,7 @@ namespace Chess
         {
             SelectPiece<Rook>(FigureColor.WHITE, 0, e);
         }
+
         private void WhiteRock2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             SelectPiece<Rook>(FigureColor.WHITE, 1, e);
@@ -175,12 +164,13 @@ namespace Chess
         {
             SelectPiece<Queen>(FigureColor.BLACK, e);
         }
-        private void WhiteKing_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+
+        private void WhiteKing_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             SelectPiece<King>(FigureColor.WHITE, e);
         }
 
-        private void BlackKing_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void BlackKing_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             SelectPiece<King>(FigureColor.BLACK, e);
         }
@@ -216,7 +206,6 @@ namespace Chess
             {
                 PaintBoardStandartColors(e);
             }
-
         }
 
         private void PaintBoardStandartColors(MouseButtonEventArgs e)
@@ -253,9 +242,9 @@ namespace Chess
                     }
                 }
             }
-
             ClearColorBoard();
         }
+
         private void ClearColorBoard()
         {
             for (int i = 0; i < Board.colorBoard.GetLength(0); i++)
@@ -278,6 +267,7 @@ namespace Chess
                 }
             }
         }
+
         private void SelectPiece<T>(FigureColor color, MouseButtonEventArgs e) where T : ChessPiece
         {
             foreach (ChessPiece figure in Board.board)
@@ -289,8 +279,5 @@ namespace Chess
                 }
             }
         }
-
-
-
     }
 }
