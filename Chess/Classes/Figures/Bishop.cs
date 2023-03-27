@@ -6,8 +6,8 @@ namespace Chess.Classes.Figures
 {
     class Bishop : PluralChessPiece
     {
-        public Bishop(FigureColor color, FigureLocation location, int number)
-           : base(color, location, number)
+        public Bishop(FigureColor color , int number)
+           : base(color,  number)
         {
 
         }

@@ -6,8 +6,8 @@ namespace Chess.Classes.Figures
 {
     class Knight : PluralChessPiece
     {
-        public Knight(FigureColor color, FigureLocation location, int number)
-            : base(color, location, number)
+        public Knight(FigureColor color, int number)
+            : base(color, number)
         {
 
         }

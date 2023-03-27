@@ -9,8 +9,8 @@ namespace Chess.Classes.Figures
         bool firstTurn;
         bool wasUnderMate;
 
-        public King(FigureColor color, FigureLocation location)
-            : base(color , location)
+        public King(FigureColor color)
+            : base(color)
         {
             firstTurn = true;
             wasUnderMate = false;

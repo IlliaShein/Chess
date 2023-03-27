@@ -6,8 +6,8 @@ namespace Chess.Classes.Figures
 {
     class Rook : PluralChessPiece
     {
-        public Rook(FigureColor color, FigureLocation location, int number)
-            : base(color, location, number)
+        public Rook(FigureColor color, int number)
+            : base(color, number)
         {
 
         }

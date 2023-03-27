@@ -8,8 +8,8 @@ namespace Chess.Classes.Figures
     {
         bool firstTurn;
 
-        public Pawn(FigureColor color, FigureLocation location , int number)
-            : base(color , location , number)
+        public Pawn(FigureColor color , int number)
+            : base(color , number)
         {
             firstTurn = true;
         }

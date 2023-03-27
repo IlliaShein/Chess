@@ -7,13 +7,11 @@ namespace Chess.Classes.Figures
     abstract class ChessPiece
     {
         protected FigureColor color;
-        protected FigureLocation location;
         protected bool isChoosen;
 
-        protected ChessPiece(FigureColor color, FigureLocation location)
+        protected ChessPiece(FigureColor color)
         {
             this.color = color;
-            this.location = location;
 
             isChoosen = false;
         }

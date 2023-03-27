@@ -7,8 +7,8 @@ namespace Chess.Classes.Figures
     class Queen : ChessPiece
     {
 
-        public Queen(FigureColor color, FigureLocation location)
-            : base(color , location)
+        public Queen(FigureColor color)
+            : base(color )
         {
 
         }

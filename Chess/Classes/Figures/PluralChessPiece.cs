@@ -8,8 +8,8 @@ namespace Chess.Classes.Figures
     {
         protected int number;
 
-        protected PluralChessPiece(FigureColor color, FigureLocation location, int number)
-            : base(color, location)
+        protected PluralChessPiece(FigureColor color, int number)
+            : base(color)
         {
             this.number = number;
         }
