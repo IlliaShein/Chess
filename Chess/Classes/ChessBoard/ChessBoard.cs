@@ -85,54 +85,56 @@ namespace Chess.Classes.ChessBoard
 
         public void MoveFigure(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
         {
-            if (board[fromRow, fromCol] is Pawn)
-            {
-                ((Pawn)board[fromRow, fromCol]).firstTurn = false;
-            }
-            else if(board[fromRow, fromCol] is King)
-            {
-                ((King)board[fromRow, fromCol]).firstTurn = false;
-            }
+            CheckPawnAndKingFirstTurn(fromRow, fromCol);
 
             board[toRow, toCol] = board[fromRow, fromCol];
             board[fromRow, fromCol] = null;
 
+            MoveImage(e, GameField, fromRow, fromCol, toRow, toCol);
+        }
+
+        private void CheckPawnAndKingFirstTurn(int row, int col)
+        {
+            if (board[row, col] is Pawn)
+            {
+                ((Pawn)board[row, col]).firstTurn = false;
+            }
+            else if (board[row, col] is King)
+            {
+                ((King)board[row, col]).firstTurn = false;
+            }
+        }
+
+        public void PlaceOneFigureOnThePlaceOfAnother(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
+        {
+            CheckPawnAndKingFirstTurn(fromRow, fromCol);
+
+            board[toRow, toCol] = board[fromRow, fromCol];
+            board[fromRow, fromCol] = null;
+
+            RemoveFigure(GameField, toRow, toCol);
+
+            MoveImage(e, GameField, fromRow, fromCol, toRow, toCol);
+        }
+
+        private void MoveImage(MouseButtonEventArgs e , Grid GameField, int fromRow, int fromCol, int toRow, int toCol)
+        {
             Image image = GameField.Children
-             .Cast<UIElement>()
-             .FirstOrDefault(e => e is Image && Grid.GetRow(e) == fromRow && Grid.GetColumn(e) == fromCol) as Image;
+            .Cast<UIElement>()
+            .FirstOrDefault(e => e is Image && Grid.GetRow(e) == fromRow && Grid.GetColumn(e) == fromCol) as Image;
 
             Grid.SetRow(image, toRow);
             Grid.SetColumn(image, toCol);
             PaintBoardStandartColors(e, GameField);
         }
 
-        public void PlaceOneFigureOnAnother(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
+        private void RemoveFigure(Grid GameField , int row, int col)
         {
-            if (board[fromRow, fromCol] is Pawn)
-            {
-                ((Pawn)board[fromRow, fromCol]).firstTurn = false;
-            }
-            else if (board[fromRow, fromCol] is King)
-            {
-                ((King)board[fromRow, fromCol]).firstTurn = false;
-            }
-
-            board[toRow, toCol] = board[fromRow, fromCol];
-            board[fromRow, fromCol] = null;
-
             Image attakedImage = GameField.Children
              .Cast<UIElement>()
-             .FirstOrDefault(e => e is Image && Grid.GetRow(e) == toRow && Grid.GetColumn(e) == toCol) as Image;
+             .FirstOrDefault(e => e is Image && Grid.GetRow(e) == row && Grid.GetColumn(e) == col) as Image;
 
             GameField.Children.Remove(attakedImage);
-
-            Image image = GameField.Children
-             .Cast<UIElement>()
-             .FirstOrDefault(e => e is Image && Grid.GetRow(e) == fromRow && Grid.GetColumn(e) == fromCol) as Image;
-
-            Grid.SetRow(image, toRow);
-            Grid.SetColumn(image, toCol);
-            PaintBoardStandartColors(e, GameField);
         }
 
         public void AttackFigure(MouseButtonEventArgs e, Grid gameField, int row , int col)
@@ -143,7 +145,7 @@ namespace Chess.Classes.ChessBoard
                 {
                     if (colorBoard[i, j] == CellColor.YELLOW)
                     {
-                        PlaceOneFigureOnAnother(e, gameField, row, col, i, j);
+                        PlaceOneFigureOnThePlaceOfAnother(e, gameField, row, col, i, j);
                     }
                 }
             }

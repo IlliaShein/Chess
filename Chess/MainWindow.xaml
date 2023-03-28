@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chess"
         mc:Ignorable="d"
+        Width="750"
+        Background="#FF2F2F2F"
         Title="MainWindow">
+    <Viewbox Stretch="Uniform">
     <Grid x:Name="GameField" MouseLeftButtonDown="GameField_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="75"/>
@@ -197,4 +200,5 @@
         <TextBlock Grid.Column = "8" Grid.Row="7" Text="1" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
         
     </Grid>
+    </Viewbox>
 </Window>
