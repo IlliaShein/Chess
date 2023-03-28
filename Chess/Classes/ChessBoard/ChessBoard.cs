@@ -87,6 +87,8 @@ namespace Chess.Classes.ChessBoard
         {
             CheckPawnAndKingFirstTurn(fromRow, fromCol);
 
+            GameNote.AddTurn(GameField, board, toRow, toCol, fromRow, fromCol);
+
             board[toRow, toCol] = board[fromRow, fromCol];
             board[fromRow, fromCol] = null;
 
@@ -162,8 +164,8 @@ namespace Chess.Classes.ChessBoard
             board[0, 2] = new Bishop(FigureColor.BLACK, 0);
             board[0, 5] = new Bishop(FigureColor.BLACK, 1);
 
-            board[0, 3] = new King(FigureColor.BLACK);
-            board[0, 4] = new Queen(FigureColor.BLACK);
+            board[0, 4] = new King(FigureColor.BLACK);
+            board[0, 3] = new Queen(FigureColor.BLACK);
 
             for (int i = 0; i < 8; i++)
             {
@@ -180,8 +182,8 @@ namespace Chess.Classes.ChessBoard
             board[7, 2] = new Bishop(FigureColor.WHITE, 0);
             board[7, 5] = new Bishop(FigureColor.WHITE, 1);
 
-            board[7, 3] = new King(FigureColor.WHITE);
-            board[7, 4] = new Queen(FigureColor.WHITE);
+            board[7, 4] = new King(FigureColor.WHITE);
+            board[7, 3] = new Queen(FigureColor.WHITE);
         }
 
         private void FillColorBoard()

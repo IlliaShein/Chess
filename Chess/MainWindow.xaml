@@ -134,7 +134,7 @@
         <Border Grid.Column = "8" Grid.Row="7" Background="#FF494949"/>
         <Border Grid.Column = "8" Grid.Row="8" Background="#FF494949"/>
 
-        <Border Grid.Column = "9" Grid.Row="0"  Grid.RowSpan="9" Background="#FF3A3939"/>
+        <TextBlock x:Name="GameNote" Grid.Column = "9" Grid.Row="0"   TextTrimming="WordEllipsis" TextWrapping="Wrap" Grid.RowSpan="9" Background="#FF3A3939" Foreground="White" FontSize="14" FontFamily="Cascadia Code"/>
 
         <Image x:Name="BlackPawn0" Grid.Column = "0" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn0_MouseLeftButtonDown"/>
         <Image x:Name="BlackPawn1" Grid.Column = "1" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn1_MouseLeftButtonDown"/>
