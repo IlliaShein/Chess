@@ -5,27 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chess"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="700">
+        Title="MainWindow">
     <Grid x:Name="GameField" MouseLeftButtonDown="GameField_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
 
         <Border Grid.Column = "1" Grid.Row="0" Background="#654321"/>
@@ -109,6 +112,27 @@
         <Border Grid.Column = "5" Grid.Row="7" Background="#FFFDD0"/>
         <Border Grid.Column = "7" Grid.Row="7" Background="#FFFDD0"/>
 
+        <Border Grid.Column = "0" Grid.Row="8" Background="#FF494949"/>
+        <Border Grid.Column = "1" Grid.Row="8" Background="#FF494949"/>
+        <Border Grid.Column = "2" Grid.Row="8" Background="#FF494949"/>
+        <Border Grid.Column = "3" Grid.Row="8" Background="#FF494949"/>
+        <Border Grid.Column = "4" Grid.Row="8" Background="#FF494949"/>
+        <Border Grid.Column = "5" Grid.Row="8" Background="#FF494949"/>
+        <Border Grid.Column = "6" Grid.Row="8" Background="#FF494949"/>
+        <Border Grid.Column = "7" Grid.Row="8" Background="#FF494949"/>
+
+        <Border Grid.Column = "8" Grid.Row="0" Background="#FF494949"/>
+        <Border Grid.Column = "8" Grid.Row="1" Background="#FF494949"/>
+        <Border Grid.Column = "8" Grid.Row="2" Background="#FF494949"/>
+        <Border Grid.Column = "8" Grid.Row="3" Background="#FF494949"/>
+        <Border Grid.Column = "8" Grid.Row="4" Background="#FF494949"/>
+        <Border Grid.Column = "8" Grid.Row="5" Background="#FF494949"/>
+        <Border Grid.Column = "8" Grid.Row="6" Background="#FF494949"/>
+        <Border Grid.Column = "8" Grid.Row="7" Background="#FF494949"/>
+        <Border Grid.Column = "8" Grid.Row="8" Background="#FF494949"/>
+
+        <Border Grid.Column = "9" Grid.Row="0"  Grid.RowSpan="9" Background="#FF3A3939"/>
+
         <Image x:Name="BlackPawn0" Grid.Column = "0" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn0_MouseLeftButtonDown"/>
         <Image x:Name="BlackPawn1" Grid.Column = "1" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn1_MouseLeftButtonDown"/>
         <Image x:Name="BlackPawn2" Grid.Column = "2" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn2_MouseLeftButtonDown"/>
@@ -154,6 +178,23 @@
         <Image x:Name="WhiteQueen" Grid.Column = "3" Grid.Row="7" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\WhiteQueen.png" MouseLeftButtonDown="WhiteQueen_MouseLeftButtonDown"/>
         <Image x:Name="BlackQueen" Grid.Column = "3" Grid.Row="0" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackQueen.png" MouseLeftButtonDown="BlackQueen_MouseLeftButtonDown"/>
 
+        <TextBlock Grid.Column = "0" Grid.Row="8" Text="A" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        <TextBlock Grid.Column = "1" Grid.Row="8" Text="B" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        <TextBlock Grid.Column = "2" Grid.Row="8" Text="C" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        <TextBlock Grid.Column = "3" Grid.Row="8" Text="D" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        <TextBlock Grid.Column = "4" Grid.Row="8" Text="E" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        <TextBlock Grid.Column = "5" Grid.Row="8" Text="F" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        <TextBlock Grid.Column = "6" Grid.Row="8" Text="G" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        <TextBlock Grid.Column = "7" Grid.Row="8" Text="H" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
 
+        <TextBlock Grid.Column = "8" Grid.Row="0" Text="8" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        <TextBlock Grid.Column = "8" Grid.Row="1" Text="7" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        <TextBlock Grid.Column = "8" Grid.Row="2" Text="6" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        <TextBlock Grid.Column = "8" Grid.Row="3" Text="5" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        <TextBlock Grid.Column = "8" Grid.Row="4" Text="4" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        <TextBlock Grid.Column = "8" Grid.Row="5" Text="3" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        <TextBlock Grid.Column = "8" Grid.Row="6" Text="2" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        <TextBlock Grid.Column = "8" Grid.Row="7" Text="1" Foreground="White" FontFamily="Microsoft Sans Serif" FontSize="15" Margin="7" TextAlignment="Center" />
+        
     </Grid>
 </Window>
