@@ -1,8 +1,7 @@
 ﻿using Chess.Classes.ChessBoard;
 using Chess.Classes.Figures;
-using System.Linq;
+using Chess.Classes.Game;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Chess
@@ -178,6 +177,11 @@ namespace Chess
         private void GameField_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             GameLogic.GameFieldClickLogicProcessing(e, Board, GameField);
+        }
+
+        private void RealTimeTB_Loaded(object sender, RoutedEventArgs e)
+        {
+            ChessClock.SetClock(RealTimeTB);
         }
     }
 }

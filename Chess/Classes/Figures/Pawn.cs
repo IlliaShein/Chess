@@ -38,9 +38,5 @@ namespace Chess.Classes.Figures
                 }
             }
         }
-        protected override void MakeTurn()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

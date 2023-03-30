@@ -8,7 +8,7 @@ namespace ChessTests
     public class ChessBoardTests
     {
         [Fact]
-        public void ChessBoardConstructorTest1_ArraysSize()
+        public void ConstructorTest1_ArraysSize()
         {
             ChessBoard chessBoard = new ChessBoard();
 
@@ -26,7 +26,7 @@ namespace ChessTests
         }
 
         [Fact]
-        public void ChessBoardConstructorTest2_Types()
+        public void ConstructorTest2_Types()
         {
             ChessBoard chessBoard = new ChessBoard();
 
@@ -40,7 +40,7 @@ namespace ChessTests
         }
 
         [Fact]
-        public void ChessBoardConstructorTest3_Colors()
+        public void ConstructorTest3_Colors()
         {
             ChessBoard chessBoard = new ChessBoard();
 
@@ -51,6 +51,70 @@ namespace ChessTests
             }
 
             Assert.True(correctColors);
+        }
+
+        [Fact]
+        public void ConstructorTest4_Numbering()
+        {
+            ChessBoard chessBoard = new ChessBoard();
+
+            bool correctNumbering = true;
+            if (!CheckNumbering(chessBoard.board))
+            {
+                correctNumbering = false;
+            }
+
+            Assert.True(correctNumbering);
+        }
+
+        private bool CheckNumbering(ChessPiece[,] board)
+        {
+            bool correctNumbering = true;
+
+            if (!CheckFiguresNumbering(board))
+            {
+                correctNumbering = false;
+                return correctNumbering;
+            }
+            if (!CheckPawnNumbering(board))
+            {
+                correctNumbering = false;
+                return correctNumbering;
+            }
+
+            return correctNumbering;
+        }
+
+        private bool CheckFiguresNumbering(ChessPiece[,] board)
+        {
+            bool correctNumbering = true;
+
+            if (((Rook)board[0, 0]).number != 0 || ((Rook)board[7, 0]).number != 0 ||
+                ((Rook)board[0, 7]).number != 1 || ((Rook)board[7, 7]).number != 1 ||
+                ((Knight)board[0, 1]).number != 0 || ((Knight)board[7, 1]).number != 0 ||
+                ((Knight)board[0, 6]).number != 1 || ((Knight)board[7, 6]).number != 1 ||
+                ((Bishop)board[0, 2]).number != 0 || ((Bishop)board[7, 2]).number != 0 ||
+                ((Bishop)board[0, 5]).number != 1 || ((Bishop)board[7, 5]).number != 1)
+            {
+                correctNumbering = false;
+            }
+
+            return correctNumbering;
+        }
+        private bool CheckPawnNumbering(ChessPiece[,] board)
+        {
+            bool correctNumbering = true;
+
+            for (int i = 0; i < board.GetLength(1); i++)
+            {
+                if (((Pawn)board[1, i]).number != i || ((Pawn)board[6, i]).number != i)
+                {
+                    correctNumbering = false;
+                    return correctNumbering;
+                }
+            }
+
+            return correctNumbering;
         }
 
         private bool CheckColors(ChessPiece[,] chessBoard)
@@ -102,7 +166,7 @@ namespace ChessTests
             {
                 correctFilling = false;
             }
-            if (!CheckTypesColorBoard(chessBoard.colorBoard))
+            else if (!CheckTypesColorBoard(chessBoard.colorBoard))
             {
                 correctFilling = false;
             }
@@ -135,22 +199,18 @@ namespace ChessTests
             if (!CheckFiguresTypeRow(chessBoard, 0))
             {
                 correctFilling = false;
-                return correctFilling;
             }
-            if (!CheckFiguresTypeRow(chessBoard, 7))
+            else if (!CheckFiguresTypeRow(chessBoard, 7))
             {
                 correctFilling = false;
-                return correctFilling;
             }
-            if (!CheckPawns(chessBoard))
+            else if (!CheckPawns(chessBoard))
             {
                 correctFilling = false;
-                return correctFilling;
             }
-            if (!CheckEmptyCells(chessBoard))
+            else if (!CheckEmptyCells(chessBoard))
             {
                 correctFilling = false;
-                return correctFilling;
             }
 
             return correctFilling;

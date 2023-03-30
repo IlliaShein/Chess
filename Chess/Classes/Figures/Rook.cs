@@ -28,9 +28,5 @@ namespace Chess.Classes.Figures
                 FiguresLogicProcessing.RockLogicProcessing(e, gameField, board);
             }
         }
-        protected override void MakeTurn()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

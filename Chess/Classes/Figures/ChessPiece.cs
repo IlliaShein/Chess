@@ -16,7 +16,6 @@ namespace Chess.Classes.Figures
         }
 
         public abstract void Select(Grid gameField, MouseButtonEventArgs e, ChessBoard.ChessBoard board);
-        protected abstract void MakeTurn();
     }
 
 

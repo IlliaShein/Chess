@@ -407,14 +407,14 @@ namespace Chess.Classes
                 }
                 else
                 {
-                    cell.Background = ChessColors.GetGreenDark();
+                    cell.Background = ChessColors.GetGreenDarkRGB();
                 }
             }
             else
             {
                 if (paintingCol % 2 == 0)
                 {
-                    cell.Background = ChessColors.GetGreenDark();
+                    cell.Background = ChessColors.GetGreenDarkRGB();
                 }
                 else
                 {

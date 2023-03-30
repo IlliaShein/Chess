@@ -33,9 +33,5 @@ namespace Chess.Classes.Figures
                 FiguresLogicProcessing.KingLogicProcessing(e, gameField, board);
             }
         }
-        protected override void MakeTurn()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
