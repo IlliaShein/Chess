@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace Chess.Classes.Figures
 {
-    class Knight : PluralChessPiece
+    public class Knight : PluralChessPiece
     {
         public Knight(FigureColor color, int number)
             : base(color, number)

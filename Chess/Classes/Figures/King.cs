@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace Chess.Classes.Figures
 {
-    class King : ChessPiece
+    public class King : ChessPiece
     {
         public bool firstTurn;
         bool wasUnderMate;

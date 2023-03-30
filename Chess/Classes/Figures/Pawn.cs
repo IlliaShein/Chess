@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace Chess.Classes.Figures
 {
-    class Pawn : PluralChessPiece
+    public class Pawn : PluralChessPiece
     {
         public bool firstTurn;
 

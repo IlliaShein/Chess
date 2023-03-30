@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace Chess.Classes.Figures
 {
-    class Queen : ChessPiece
+    public class Queen : ChessPiece
     {
 
         public Queen(FigureColor color)

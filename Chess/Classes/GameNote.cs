@@ -1,17 +1,12 @@
 ﻿using Chess.Classes.Figures;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Controls;
 using System.Windows.Documents;
-using System.Windows.Media;
 
 namespace Chess.Classes
 {
     public static class GameNote
     {
-        public static object Inlines { get; private set; }
-
         public static void AddTurn(Grid grid, ChessPiece[,] board,int toRow, int toCol, int fromRow, int fromCol)
         {
             TextBlock gameNote = (TextBlock)grid.FindName("GameNote");
@@ -100,12 +95,12 @@ namespace Chess.Classes
 
             if (board[fromRow, fromCol].color == FigureColor.WHITE)
             {
-                var newSpan = new Span(new Run(turn) { Foreground = Brushes.White });
+                var newSpan = new Span(new Run(turn) { Foreground = ChessColors.GetWhiteRGB() });
                 gameNote.Inlines.Add(newSpan);
             }
             else //board[fromRow, fromCol].color == FigureColor.BLACK
             {
-                var newSpan = new Span(new Run(turn) { Foreground = Brushes.Black });
+                var newSpan = new Span(new Run(turn) { Foreground = ChessColors.GetBlackRGB() });
                 gameNote.Inlines.Add(newSpan);
             }
         }
