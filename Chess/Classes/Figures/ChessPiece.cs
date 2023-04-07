@@ -15,7 +15,7 @@ namespace Chess.Classes.Figures
             isChoosen = false;
         }
 
-        public abstract void Select(Grid gameField, MouseButtonEventArgs e, ChessBoard.ChessBoard board);
+        public abstract void Select(Grid gameField, MouseButtonEventArgs e);
     }
 
 

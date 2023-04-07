@@ -7,21 +7,12 @@ using System.Windows.Input;
 namespace Chess.Classes.ChessBoard
 {
     
-    public class ChessBoard
+    public static class ChessBoard
     {
-        public ChessPiece[,] board;
-        public CellColor[,] colorBoard;
+        public static ChessPiece[,] board = new ChessPiece[8, 8];
+        public static CellColor[,] colorBoard = new CellColor[8, 8];
 
-        public ChessBoard()
-        {
-            board = new ChessPiece[8, 8];
-            colorBoard = new CellColor[8, 8];
-
-            FillBoard();
-            FillColorBoard();
-        }
-
-        public void PaintBoardStandartColors(MouseButtonEventArgs e, Grid GameField)
+        public static void PaintBoardStandartColors(MouseButtonEventArgs e, Grid GameField)
         {
             for (int i = 0; i < 8; i++)
             {
@@ -58,7 +49,7 @@ namespace Chess.Classes.ChessBoard
             ClearColorBoard();
         }
 
-        public void ClearColorBoard()
+        public static void ClearColorBoard()
         {
             for (int i = 0; i < colorBoard.GetLength(0); i++)
             {
@@ -69,7 +60,7 @@ namespace Chess.Classes.ChessBoard
             }
         }
 
-        public void PaintCellInYellow(Grid gameField, MouseButtonEventArgs e)
+        public static void PaintCellInYellow(Grid gameField, MouseButtonEventArgs e)
         {
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
@@ -83,7 +74,7 @@ namespace Chess.Classes.ChessBoard
             colorBoard[row, col] = CellColor.YELLOW;
         }
 
-        public void MoveFigure(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
+        public static void MoveFigure(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
         {
             CheckPawnAndKingFirstTurn(fromRow, fromCol);
 
@@ -95,7 +86,7 @@ namespace Chess.Classes.ChessBoard
             MoveImage(e, GameField, fromRow, fromCol, toRow, toCol);
         }
 
-        private void CheckPawnAndKingFirstTurn(int row, int col)
+        private static void CheckPawnAndKingFirstTurn(int row, int col)
         {
             if (board[row, col] is Pawn)
             {
@@ -107,7 +98,7 @@ namespace Chess.Classes.ChessBoard
             }
         }
 
-        public void PlaceOneFigureOnThePlaceOfAnother(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
+        public static void PlaceOneFigureOnThePlaceOfAnother(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
         {
             CheckPawnAndKingFirstTurn(fromRow, fromCol);
 
@@ -119,7 +110,7 @@ namespace Chess.Classes.ChessBoard
             MoveImage(e, GameField, fromRow, fromCol, toRow, toCol);
         }
 
-        private void MoveImage(MouseButtonEventArgs e , Grid GameField, int fromRow, int fromCol, int toRow, int toCol)
+        private static void MoveImage(MouseButtonEventArgs e , Grid GameField, int fromRow, int fromCol, int toRow, int toCol)
         {
             Image image = GameField.Children
             .Cast<UIElement>()
@@ -130,7 +121,7 @@ namespace Chess.Classes.ChessBoard
             PaintBoardStandartColors(e, GameField);
         }
 
-        private void RemoveFigure(Grid GameField , int row, int col)
+        private static void RemoveFigure(Grid GameField , int row, int col)
         {
             Image attakedImage = GameField.Children
              .Cast<UIElement>()
@@ -139,7 +130,7 @@ namespace Chess.Classes.ChessBoard
             GameField.Children.Remove(attakedImage);
         }
 
-        public void AttackFigure(MouseButtonEventArgs e, Grid gameField, int row , int col)
+        public static void AttackFigure(MouseButtonEventArgs e, Grid gameField, int row , int col)
         {
             for (int i = 0; i < colorBoard.GetLength(0); i++)
             {
@@ -153,7 +144,7 @@ namespace Chess.Classes.ChessBoard
             }
         }
 
-        private void FillBoard()
+        public static void FillBoard()
         {
             board[0,0] = new Rook(FigureColor.BLACK,0);
             board[0, 7] = new Rook(FigureColor.BLACK, 1);
@@ -186,7 +177,7 @@ namespace Chess.Classes.ChessBoard
             board[7, 3] = new Queen(FigureColor.WHITE);
         }
 
-        private void FillColorBoard()
+        public static void FillColorBoard()
         {
             for (int i = 0; i < colorBoard.GetLength(0); i++)
             {

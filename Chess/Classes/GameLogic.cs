@@ -10,52 +10,52 @@ namespace Chess
 {
     public static class GameLogic
     {
-        public static void SelectPiece<T>(FigureColor color, int number, MouseButtonEventArgs e, ChessBoard Board, Grid GameField) where T : PluralChessPiece
+        public static void SelectPiece<T>(FigureColor color, int number, MouseButtonEventArgs e, Grid GameField) where T : PluralChessPiece
         {
-            foreach (ChessPiece figure in Board.board)
+            foreach (ChessPiece figure in ChessBoard.board)
             {
                 if (figure is T && ((T)figure).color == color && ((T)figure).number == number)
                 {
                     T Figure = (T)figure;
-                    Figure.Select(GameField, e, Board);
+                    Figure.Select(GameField, e);
                 }
             }
         }
 
-        public static void SelectPiece<T>(FigureColor color, MouseButtonEventArgs e , ChessBoard Board, Grid GameField) where T : ChessPiece
+        public static void SelectPiece<T>(FigureColor color, MouseButtonEventArgs e, Grid GameField) where T : ChessPiece
         {
-            foreach (ChessPiece figure in Board.board)
+            foreach (ChessPiece figure in ChessBoard.board)
             {
                 if (figure is T && ((T)figure).color == color)
                 {
                     T Figure = (T)figure;
-                    Figure.Select(GameField, e, Board);
+                    Figure.Select(GameField, e);
                 }
             }
         }
 
-        public static void GameFieldClickLogicProcessing(MouseButtonEventArgs e, ChessBoard Board, Grid GameField)
+        public static void GameFieldClickLogicProcessing(MouseButtonEventArgs e, Grid GameField)
         {
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            if (Board.colorBoard[row, col] == CellColor.GREEN) //|| Board.colorBoard[row, col] == CellColor.RED
+            if (ChessBoard.colorBoard[row, col] == CellColor.GREEN) //|| Board.colorBoard[row, col] == CellColor.RED
             {
-                for (int i = 0; i < Board.colorBoard.GetLength(0); i++)
+                for (int i = 0; i < ChessBoard.colorBoard.GetLength(0); i++)
                 {
-                    for (int j = 0; j < Board.colorBoard.GetLength(1); j++)
+                    for (int j = 0; j < ChessBoard.colorBoard.GetLength(1); j++)
                     {
-                        if (Board.colorBoard[i, j] == CellColor.YELLOW)
+                        if (ChessBoard.colorBoard[i, j] == CellColor.YELLOW)
                         {
                             Turn.changeColor();
-                             Board.MoveFigure(e, GameField, row, col, i, j);
+                            ChessBoard.MoveFigure(e, GameField, row, col, i, j);
                         }
                     }
                 }
             }
-            else if (Board.colorBoard[row, col] != CellColor.YELLOW)
+            else if (ChessBoard.colorBoard[row, col] != CellColor.YELLOW)
             {
-                Board.PaintBoardStandartColors(e,GameField);
+                ChessBoard.PaintBoardStandartColors(e,GameField);
             }
         }
     }

@@ -13,21 +13,21 @@ namespace Chess.Classes.Figures
         {
 
         }
-        public override void Select(Grid gameField, MouseButtonEventArgs e, ChessBoard.ChessBoard board)
+        public override void Select(Grid gameField, MouseButtonEventArgs e)
         {
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            if (board.colorBoard[row, col] == CellColor.RED)
+            if (ChessBoard.ChessBoard.colorBoard[row, col] == CellColor.RED)
             {
                 Turn.changeColor();
-                board.AttackFigure(e, gameField, row, col);
+                ChessBoard.ChessBoard.AttackFigure(e, gameField, row, col);
             }
             else if (Turn.GetTurnColor() == color)
             {
-                board.PaintBoardStandartColors(e, gameField);
-                board.PaintCellInYellow(gameField, e);
-                FiguresLogicProcessing.QueenLogicProcessing(e, gameField, board);
+                ChessBoard.ChessBoard.PaintBoardStandartColors(e, gameField);
+                ChessBoard.ChessBoard.PaintCellInYellow(gameField, e);
+                FiguresLogicProcessing.QueenLogicProcessing(e, gameField);
             }
         }
     }

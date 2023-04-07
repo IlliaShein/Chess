@@ -3,36 +3,37 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Chess.Classes.Figures;
+using Chess.Classes.ChessBoard;
 
 namespace Chess.Classes
 {
     public static class FiguresLogicProcessing
     {
-        public static void WhitePawnLogicProcessing(MouseButtonEventArgs e, Grid gameField, ChessBoard.ChessBoard board)
+        public static void WhitePawnLogicProcessing(MouseButtonEventArgs e, Grid gameField)
         {
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            PaintCell(e, gameField, board, 1, 0);
-            if (((Pawn)board.board[row, col]).firstTurn == true)
+            PaintCell(e, gameField, 1, 0);
+            if (((Pawn)ChessBoard.ChessBoard.board[row, col]).firstTurn == true)
             {
-                PaintCell(e, gameField, board, 2, 0);
+                PaintCell(e, gameField, 2, 0);
             }
         }
 
-        public static void BlackPawnLogicProcessing(MouseButtonEventArgs e, Grid gameField, ChessBoard.ChessBoard board)
+        public static void BlackPawnLogicProcessing(MouseButtonEventArgs e, Grid gameField)
         {
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            PaintCell(e, gameField, board, -1, 0);
-            if (((Pawn)board.board[row, col]).firstTurn == true)
+            PaintCell(e, gameField, -1, 0);
+            if (((Pawn)ChessBoard.ChessBoard.board[row, col]).firstTurn == true)
             {
-                PaintCell(e, gameField, board, -2, 0);
+                PaintCell(e, gameField, -2, 0);
             }
         }
 
-        public static void KnightLogicProcessing(MouseButtonEventArgs e, Grid gameField, ChessBoard.ChessBoard board)
+        public static void KnightLogicProcessing(MouseButtonEventArgs e, Grid gameField)
         {
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
@@ -41,126 +42,126 @@ namespace Chess.Classes
             {
                 if (col != 0)
                 {
-                    PaintCell(e, gameField, board, 2, 1);
+                    PaintCell(e, gameField, 2, 1);
                 }
                 if (col != 7)
                 {
-                    PaintCell(e, gameField, board, 2, -1);
+                    PaintCell(e, gameField, 2, -1);
                 }
             }
             if (col < 6)
             {
                 if (row != 0)
                 {
-                    PaintCell(e, gameField, board, 1, -2);
+                    PaintCell(e, gameField, 1, -2);
                 }
                 if (row != 7)
                 {
-                    PaintCell(e, gameField, board, -1, -2);
+                    PaintCell(e, gameField, -1, -2);
                 }
             }
             if (row < 6)
             {
                 if (col != 0)
                 {
-                    PaintCell(e, gameField, board, -2, 1);
+                    PaintCell(e, gameField, -2, 1);
                 }
                 if (col != 7)
                 {
-                    PaintCell(e, gameField, board, -2, -1);
+                    PaintCell(e, gameField, -2, -1);
                 }
             }
             if (col > 1)
             {
                 if (row != 0)
                 {
-                    PaintCell(e, gameField, board, 1, 2);
+                    PaintCell(e, gameField, 1, 2);
                 }
                 if (row != 7)
                 {
-                    PaintCell(e, gameField, board, -1, 2);
+                    PaintCell(e, gameField, -1, 2);
                 }
             }
         }
 
-        public static void RockLogicProcessing(MouseButtonEventArgs e, Grid gameField, ChessBoard.ChessBoard board)
+        public static void RockLogicProcessing(MouseButtonEventArgs e, Grid gameField)
         {
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            PaintLeftRockAttackLine(e, gameField, col, board);
-            PaintUpRockAttackLine(e, gameField, row, board);
-            PaintRightRockAttackLine(e, gameField, col, board);
-            PaintDownRockAttackLine(e, gameField, row, board);
+            PaintLeftRockAttackLine(e, gameField, col);
+            PaintUpRockAttackLine(e, gameField, row);
+            PaintRightRockAttackLine(e, gameField, col);
+            PaintDownRockAttackLine(e, gameField, row);
         }
 
-        public static void BishopLogicProcessing(MouseButtonEventArgs e, Grid gameField, ChessBoard.ChessBoard board)
+        public static void BishopLogicProcessing(MouseButtonEventArgs e, Grid gameField)
         {
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            PaintLeftUpBishopAttackLine(e, gameField, col, row, board);
-            PaintRightDownBishopAttackLine(e, gameField, col, row, board);
-            PaintLeftDownBishopAttackLine(e, gameField, col, row, board);
-            PaintRightUpBishopAttackLine(e, gameField, col, row, board);
+            PaintLeftUpBishopAttackLine(e, gameField, col, row);
+            PaintRightDownBishopAttackLine(e, gameField, col, row);
+            PaintLeftDownBishopAttackLine(e, gameField, col, row);
+            PaintRightUpBishopAttackLine(e, gameField, col, row);
         }
 
-        public static void QueenLogicProcessing(MouseButtonEventArgs e, Grid gameField, ChessBoard.ChessBoard board)
+        public static void QueenLogicProcessing(MouseButtonEventArgs e, Grid gameField)
         {
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            PaintLeftRockAttackLine(e, gameField, col, board);
-            PaintUpRockAttackLine(e, gameField, row, board);
-            PaintRightRockAttackLine(e, gameField, col, board);
-            PaintDownRockAttackLine(e, gameField, row, board);
+            PaintLeftRockAttackLine(e, gameField, col);
+            PaintUpRockAttackLine(e, gameField, row);
+            PaintRightRockAttackLine(e, gameField, col);
+            PaintDownRockAttackLine(e, gameField, row);
 
-            PaintLeftUpBishopAttackLine(e, gameField, col, row, board);
-            PaintRightDownBishopAttackLine(e, gameField, col, row, board);
-            PaintLeftDownBishopAttackLine(e, gameField, col, row, board);
-            PaintRightUpBishopAttackLine(e, gameField, col, row, board);
+            PaintLeftUpBishopAttackLine(e, gameField, col, row);
+            PaintRightDownBishopAttackLine(e, gameField, col, row);
+            PaintLeftDownBishopAttackLine(e, gameField, col, row);
+            PaintRightUpBishopAttackLine(e, gameField, col, row);
         }
 
-        public static void KingLogicProcessing(MouseButtonEventArgs e, Grid gameField, ChessBoard.ChessBoard board)
+        public static void KingLogicProcessing(MouseButtonEventArgs e, Grid gameField)
         {
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
             if (col - 1 != -1 && row - 1 != -1)
             {
-                PaintCell(e, gameField, board, 1, 1);
+                PaintCell(e, gameField, 1, 1);
             }
             if (row - 1 != -1)
             {
-                PaintCell(e, gameField, board, 1, 0);
+                PaintCell(e, gameField, 1, 0);
             }
             if (row - 1 != -1 && col + 1 != 8)
             {
-                PaintCell(e, gameField, board, 1, -1);
+                PaintCell(e, gameField, 1, -1);
             }
             if (col + 1 != 8)
             {
-                PaintCell(e, gameField, board, 0, -1);
+                PaintCell(e, gameField, 0, -1);
             }
             if (row + 1 != 8)
             {
-                PaintCell(e, gameField, board, -1, 0);
+                PaintCell(e, gameField, -1, 0);
             }
             if (row + 1 != 8 && col + 1 != 8)
             {
-                PaintCell(e, gameField, board, -1, -1);
+                PaintCell(e, gameField, -1, -1);
             }
             if (row + 1 != 8 && col - 1 != -1)
             {
-                PaintCell(e, gameField, board, -1, 1);
+                PaintCell(e, gameField, -1, 1);
             }
             if (col - 1 != -1)
             {
-                PaintCell(e, gameField, board, 0, 1);
+                PaintCell(e, gameField, 0, 1);
             }
         }
 
-        private static void PaintLeftRockAttackLine(MouseButtonEventArgs e, Grid gameField, int col, ChessBoard.ChessBoard board)
+        private static void PaintLeftRockAttackLine(MouseButtonEventArgs e, Grid gameField, int col)
         {
             bool fieldEnd = false;
             int i = 1;
@@ -168,8 +169,8 @@ namespace Chess.Classes
             {
                 if (col - 1 != -1)
                 {
-                    PaintCell(e, gameField, board, 0, i);
-                    if (IsCellRed(e, gameField, board, 0, i) || IsCellBrown(e, gameField, board, 0, i))
+                    PaintCell(e, gameField, 0, i);
+                    if (IsCellRed(e, gameField, 0, i) || IsCellBrown(e, gameField, 0, i))
                     {
                         break;
                     }
@@ -183,7 +184,7 @@ namespace Chess.Classes
             }
         }
 
-        private static void PaintUpRockAttackLine(MouseButtonEventArgs e, Grid gameField, int row, ChessBoard.ChessBoard board)
+        private static void PaintUpRockAttackLine(MouseButtonEventArgs e, Grid gameField, int row)
         {
             bool fieldEnd = false;
             int i = 1;
@@ -191,8 +192,8 @@ namespace Chess.Classes
             {
                 if (row - 1 != -1)
                 {
-                    PaintCell(e, gameField, board, i, 0);
-                    if (IsCellRed(e, gameField, board, i, 0) || IsCellBrown(e, gameField, board, i, 0))
+                    PaintCell(e, gameField, i, 0);
+                    if (IsCellRed(e, gameField, i, 0) || IsCellBrown(e, gameField, i, 0))
                     {
                         break;
                     }
@@ -206,7 +207,7 @@ namespace Chess.Classes
             }
         }
 
-        private static void PaintRightRockAttackLine(MouseButtonEventArgs e, Grid gameField, int col, ChessBoard.ChessBoard board)
+        private static void PaintRightRockAttackLine(MouseButtonEventArgs e, Grid gameField, int col)
         {
             bool fieldEnd = false;
             int i = 1;
@@ -214,8 +215,8 @@ namespace Chess.Classes
             {
                 if (col + 1 != 8)
                 {
-                    PaintCell(e, gameField, board, 0, -i);
-                    if (IsCellRed(e, gameField, board, 0, -i) || IsCellBrown(e, gameField, board, 0, -i))
+                    PaintCell(e, gameField, 0, -i);
+                    if (IsCellRed(e, gameField, 0, -i) || IsCellBrown(e, gameField, 0, -i))
                     {
                         break;
                     }
@@ -229,7 +230,7 @@ namespace Chess.Classes
             }
         }
 
-        private static void PaintDownRockAttackLine(MouseButtonEventArgs e, Grid gameField, int row, ChessBoard.ChessBoard board)
+        private static void PaintDownRockAttackLine(MouseButtonEventArgs e, Grid gameField, int row)
         {
             bool fieldEnd = false;
             int i = 1;
@@ -237,8 +238,8 @@ namespace Chess.Classes
             {
                 if (row + 1 != 8)
                 {
-                    PaintCell(e, gameField, board, -i, 0);
-                    if (IsCellRed(e, gameField, board, -i, 0) || IsCellBrown(e, gameField, board, -i, 0))
+                    PaintCell(e, gameField, -i, 0);
+                    if (IsCellRed(e, gameField, -i, 0) || IsCellBrown(e, gameField, -i, 0))
                     {
                         break;
                     }
@@ -252,7 +253,7 @@ namespace Chess.Classes
             }
         }
 
-        private static void PaintLeftUpBishopAttackLine(MouseButtonEventArgs e, Grid gameField, int col, int row, ChessBoard.ChessBoard board)
+        private static void PaintLeftUpBishopAttackLine(MouseButtonEventArgs e, Grid gameField, int col, int row)
         {
             bool fieldEnd = false;
             int i = 1;
@@ -260,8 +261,8 @@ namespace Chess.Classes
             {
                 if (row - 1 != -1 && col - 1 != -1)
                 {
-                    PaintCell(e, gameField, board, i, i);
-                    if (IsCellRed(e, gameField, board, i, i) || IsCellBrown(e, gameField, board, i, i))
+                    PaintCell(e, gameField, i, i);
+                    if (IsCellRed(e, gameField, i, i) || IsCellBrown(e, gameField, i, i))
                     {
                         break;
                     }
@@ -276,7 +277,7 @@ namespace Chess.Classes
             }
         }
 
-        private static void PaintRightDownBishopAttackLine(MouseButtonEventArgs e, Grid gameField, int col, int row, ChessBoard.ChessBoard board)
+        private static void PaintRightDownBishopAttackLine(MouseButtonEventArgs e, Grid gameField, int col, int row)
         {
             int i = 1;
             bool fieldEnd = false;
@@ -284,8 +285,8 @@ namespace Chess.Classes
             {
                 if (row + 1 != 8 && col + 1 != 8)
                 {
-                    PaintCell(e, gameField, board, -i, -i);
-                    if (IsCellRed(e, gameField, board, -i, -i) || IsCellBrown(e, gameField, board, -i, -i))
+                    PaintCell(e, gameField, -i, -i);
+                    if (IsCellRed(e, gameField, -i, -i) || IsCellBrown(e, gameField, -i, -i))
                     {
                         break;
                     }
@@ -300,7 +301,7 @@ namespace Chess.Classes
             }
         }
 
-        private static void PaintLeftDownBishopAttackLine(MouseButtonEventArgs e, Grid gameField, int col, int row, ChessBoard.ChessBoard board)
+        private static void PaintLeftDownBishopAttackLine(MouseButtonEventArgs e, Grid gameField, int col, int row)
         {
             int i = 1;
             bool fieldEnd = false;
@@ -308,8 +309,8 @@ namespace Chess.Classes
             {
                 if (row + 1 != 8 && col - 1 != -1)
                 {
-                    PaintCell(e, gameField, board, -i, i);
-                    if (IsCellRed(e, gameField, board, -i, i) || IsCellBrown(e, gameField, board, -i, i))
+                    PaintCell(e, gameField, -i, i);
+                    if (IsCellRed(e, gameField, -i, i) || IsCellBrown(e, gameField, -i, i))
                     {
                         break;
                     }
@@ -324,7 +325,7 @@ namespace Chess.Classes
             }
         }
 
-        private static void PaintRightUpBishopAttackLine(MouseButtonEventArgs e, Grid gameField, int col, int row, ChessBoard.ChessBoard board)
+        private static void PaintRightUpBishopAttackLine(MouseButtonEventArgs e, Grid gameField, int col, int row)
         {
             int i = 1;
             bool fieldEnd = false;
@@ -332,8 +333,8 @@ namespace Chess.Classes
             {
                 if (row - 1 != -1 && col + 1 != 8)
                 {
-                    PaintCell(e, gameField, board, i, -i);
-                    if (IsCellRed(e, gameField, board, i, -i) || IsCellBrown(e, gameField, board, i, -i))
+                    PaintCell(e, gameField, i, -i);
+                    if (IsCellRed(e, gameField, i, -i) || IsCellBrown(e, gameField, i, -i))
                     {
                         break;
                     }
@@ -348,7 +349,7 @@ namespace Chess.Classes
             }
         }
 
-        private static void PaintCell(MouseButtonEventArgs e, Grid gameField, ChessBoard.ChessBoard board, int rowOffsetFromChosenCell = 0, int colOffsetFromChosenCell = 0)
+        private static void PaintCell(MouseButtonEventArgs e, Grid gameField, int rowOffsetFromChosenCell = 0, int colOffsetFromChosenCell = 0)
         {
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
@@ -358,15 +359,15 @@ namespace Chess.Classes
                 .First(e => Grid.GetRow(e) + rowOffsetFromChosenCell == row && Grid.GetColumn(e) + colOffsetFromChosenCell == col) as Border;
 
 
-            if (board.board[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] == null)
+            if (ChessBoard.ChessBoard.board[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] == null)
             {
                 ChooseGreenColorForCell(cell, row + rowOffsetFromChosenCell, col + colOffsetFromChosenCell);
-                board.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] = CellColor.GREEN;
+                ChessBoard.ChessBoard.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] = CellColor.GREEN;
             }
-            else if (board.board[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)].color != board.board[row, col].color)
+            else if (ChessBoard.ChessBoard.board[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)].color != ChessBoard.ChessBoard.board[row, col].color)
             {
                 ChooseRedColorForCell(cell, row + rowOffsetFromChosenCell, col + colOffsetFromChosenCell);
-                board.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] = CellColor.RED;
+                ChessBoard.ChessBoard.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] = CellColor.RED;
             }
         }
 
@@ -423,7 +424,7 @@ namespace Chess.Classes
             }
         }
 
-        private static bool IsCellRed(MouseButtonEventArgs e, Grid gameField, ChessBoard.ChessBoard board, int rowOffsetFromChosenCell = 0, int colOffsetFromChosenCell = 0)
+        private static bool IsCellRed(MouseButtonEventArgs e, Grid gameField, int rowOffsetFromChosenCell = 0, int colOffsetFromChosenCell = 0)
         {
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
@@ -432,7 +433,7 @@ namespace Chess.Classes
                 .Cast<UIElement>()
                 .First(e => Grid.GetRow(e) + rowOffsetFromChosenCell == row && Grid.GetColumn(e) + colOffsetFromChosenCell == col) as Border;
 
-            if (board.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] == CellColor.RED)
+            if (ChessBoard.ChessBoard.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] == CellColor.RED)
             {
                 return true;
             }
@@ -442,7 +443,7 @@ namespace Chess.Classes
             }
         }
 
-        private static bool IsCellBrown(MouseButtonEventArgs e, Grid gameField, ChessBoard.ChessBoard board, int rowOffsetFromChosenCell = 0, int colOffsetFromChosenCell = 0)
+        private static bool IsCellBrown(MouseButtonEventArgs e, Grid gameField, int rowOffsetFromChosenCell = 0, int colOffsetFromChosenCell = 0)
         {
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
@@ -451,7 +452,7 @@ namespace Chess.Classes
                 .Cast<UIElement>()
                 .First(e => Grid.GetRow(e) + rowOffsetFromChosenCell == row && Grid.GetColumn(e) + colOffsetFromChosenCell == col) as Border;
 
-            if (board.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] == CellColor.EMPTY)
+            if (ChessBoard.ChessBoard.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] == CellColor.EMPTY)
             {
                 return true;
             }
