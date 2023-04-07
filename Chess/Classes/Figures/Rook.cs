@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chess.Classes.Game;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -19,9 +20,10 @@ namespace Chess.Classes.Figures
 
             if (board.colorBoard[row, col] == CellColor.RED)
             {
+                Turn.changeColor();
                 board.AttackFigure(e, gameField, row, col);
             }
-            else
+            else if (Turn.GetTurnColor() == color)
             {
                 board.PaintBoardStandartColors(e, gameField);
                 board.PaintCellInYellow(gameField, e);

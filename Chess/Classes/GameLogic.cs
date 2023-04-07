@@ -1,5 +1,6 @@
 ﻿using Chess.Classes.ChessBoard;
 using Chess.Classes.Figures;
+using Chess.Classes.Game;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -38,7 +39,7 @@ namespace Chess
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            if (Board.colorBoard[row, col] == CellColor.GREEN || Board.colorBoard[row, col] == CellColor.RED)
+            if (Board.colorBoard[row, col] == CellColor.GREEN) //|| Board.colorBoard[row, col] == CellColor.RED
             {
                 for (int i = 0; i < Board.colorBoard.GetLength(0); i++)
                 {
@@ -46,6 +47,7 @@ namespace Chess
                     {
                         if (Board.colorBoard[i, j] == CellColor.YELLOW)
                         {
+                            Turn.changeColor();
                              Board.MoveFigure(e, GameField, row, col, i, j);
                         }
                     }

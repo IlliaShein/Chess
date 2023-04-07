@@ -17,7 +17,7 @@ namespace Chess
 
         private void WhitePawn0_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.SelectPiece<Pawn>(FigureColor.WHITE, 0 , e , Board , GameField);
+            GameLogic.SelectPiece<Pawn>(FigureColor.WHITE, 0, e, Board, GameField);
         }
 
         private void WhitePawn1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -27,7 +27,7 @@ namespace Chess
 
         private void WhitePawn2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.SelectPiece<Pawn>(FigureColor.WHITE, 2, e, Board, GameField);
+             GameLogic.SelectPiece<Pawn>(FigureColor.WHITE, 2, e, Board, GameField);
         }
 
         private void WhitePawn3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -52,7 +52,7 @@ namespace Chess
 
         private void WhitePawn7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.SelectPiece<Pawn>(FigureColor.WHITE, 7, e, Board, GameField);
+            GameLogic.SelectPiece<Pawn>(FigureColor.WHITE, 7, e, Board, GameField);   
         }
 
         private void BlackPawn0_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -72,7 +72,7 @@ namespace Chess
 
         private void BlackPawn3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.SelectPiece<Pawn>(FigureColor.BLACK, 3, e, Board, GameField);
+            GameLogic.SelectPiece<Pawn>(FigureColor.BLACK, 3, e, Board, GameField);        
         }
 
         private void BlackPawn4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -171,7 +171,7 @@ namespace Chess
 
         private void BlackKing_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GameLogic.SelectPiece<King>(FigureColor.BLACK, e, Board, GameField);
+           GameLogic.SelectPiece<King>(FigureColor.BLACK, e, Board, GameField);
         }
 
         private void GameField_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
