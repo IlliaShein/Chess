@@ -1,5 +1,4 @@
-﻿using Chess.Classes.Game;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Chess.Classes.Figures

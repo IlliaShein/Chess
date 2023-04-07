@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Chess.Classes.Game
+﻿namespace Chess.Classes.Game
 {
     public static class Turn
     {
