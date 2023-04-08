@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Width="750"
         Background="#FF2F2F2F"
-        Title="MainWindow">
+        Title="MainWindow"
+        WindowStyle="None" MouseDown="Window_MouseDown">
     <Viewbox Stretch="Uniform">
-    <Grid x:Name="GameField" MouseLeftButtonDown="GameField_MouseLeftButtonDown">
+        <Grid x:Name="GameField" MouseLeftButtonDown="GameField_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="75"/>
             <ColumnDefinition Width="75"/>
@@ -134,10 +135,13 @@
         <Border Grid.Column = "8" Grid.Row="7" Background="#FF494949"/>
         <Border Grid.Column = "8" Grid.Row="8" Background="#FF494949"/>
 
-        <TextBlock x:Name="GameNote" Grid.Column = "9" Grid.Row="0"   TextTrimming="WordEllipsis" TextWrapping="Wrap" Grid.RowSpan="8" Background="#FF3A3939" Foreground="White" FontSize="14" FontFamily="Cascadia Code"/>
-            <TextBlock x:Name="RealTimeTB" Grid.Column = "9" Grid.Row="9"   TextTrimming="WordEllipsis" TextWrapping="Wrap" Grid.RowSpan="8" Background="#FF3A3939" Foreground="White" FontSize="14" FontFamily="Cascadia Code" Loaded="RealTimeTB_Loaded"/>
+        <TextBlock x:Name="GameNote" Grid.Column = "9" Grid.Row="0"   TextTrimming="WordEllipsis" TextWrapping="Wrap" Grid.RowSpan="7" Background="#FF3A3939" Foreground="White" FontSize="14" FontFamily="Cascadia Code"/>
+        <TextBlock x:Name="RealTimeTB" Grid.Column = "9" Grid.Row="9"   TextTrimming="WordEllipsis" TextWrapping="Wrap" Grid.RowSpan="8" Background="#FF3A3939" Foreground="White" FontSize="14" FontFamily="Cascadia Code" Loaded="RealTimeTB_Loaded"/>
 
-            <Image x:Name="BlackPawn0" Grid.Column = "0" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn0_MouseLeftButtonDown"/>
+        <Border Grid.Column = "9" Grid.Row="7" Background="#FF3A3939"/>
+        <Button x:Name="ExitButton" Grid.Column = "9" Grid.Row="7" Margin="8" Background="#FFF64040" Click="ExitButton_Click" Content="Exit" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black"/>
+
+        <Image x:Name="BlackPawn0" Grid.Column = "0" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn0_MouseLeftButtonDown"/>
         <Image x:Name="BlackPawn1" Grid.Column = "1" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn1_MouseLeftButtonDown"/>
         <Image x:Name="BlackPawn2" Grid.Column = "2" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn2_MouseLeftButtonDown"/>
         <Image x:Name="BlackPawn3" Grid.Column = "3" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn3_MouseLeftButtonDown"/>

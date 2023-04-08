@@ -39,6 +39,11 @@ namespace Chess
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
+            if(col > 7 || row > 7)
+            {
+                return; 
+            }
+
             if (ChessBoard.colorBoard[row, col] == CellColor.GREEN) //|| Board.colorBoard[row, col] == CellColor.RED
             {
                 for (int i = 0; i < ChessBoard.colorBoard.GetLength(0); i++)
