@@ -40,5 +40,13 @@ namespace Chess
         {
             return new SolidColorBrush(Color.FromRgb(0, 0, 0));
         }
+        public static SolidColorBrush GetBlueLightRGB()
+        {
+            return new SolidColorBrush(Color.FromRgb(93, 116, 201));
+        }
+        public static SolidColorBrush GetBlueDarkRGB()
+        {
+            return new SolidColorBrush(Color.FromRgb(51, 61, 97));
+        }
     }
 }

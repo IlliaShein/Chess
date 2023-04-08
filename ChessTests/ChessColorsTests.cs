@@ -86,5 +86,23 @@ namespace ChessTests
 
             Assert.Equal(expected.ToString(), actual.ToString());
         }
+
+        [Fact]
+        public void GetBlueLightRGBTest()
+        {
+            SolidColorBrush actual = ChessColors.GetBlueLightRGB();
+            SolidColorBrush expected = new SolidColorBrush(Color.FromRgb(93, 116, 201));
+
+            Assert.Equal(expected.ToString(), actual.ToString());
+        }
+
+        [Fact]
+        public void GetBlueDarkRGBTest()
+        {
+            SolidColorBrush actual = ChessColors.GetBlueDarkRGB();
+            SolidColorBrush expected = new SolidColorBrush(Color.FromRgb(51, 61, 97));
+
+            Assert.Equal(expected.ToString(), actual.ToString());
+        }
     }
 }

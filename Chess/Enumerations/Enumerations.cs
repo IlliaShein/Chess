@@ -5,6 +5,7 @@
         EMPTY,
         YELLOW,
         GREEN,
-        RED
+        RED,
+        BLUE
     }
 }

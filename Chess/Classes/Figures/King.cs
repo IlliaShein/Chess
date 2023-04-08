@@ -8,13 +8,13 @@ namespace Chess.Classes.Figures
     public class King : ChessPiece
     {
         public bool firstTurn;
-        bool wasUnderMate;
+        bool wasUnderCheck;
 
         public King(FigureColor color)
             : base(color)
         {
             firstTurn = true;
-            wasUnderMate = false;
+            wasUnderCheck = false;
         }
 
         public override void Select(Grid gameField, MouseButtonEventArgs e)
@@ -31,7 +31,9 @@ namespace Chess.Classes.Figures
             {
                 ChessBoard.ChessBoard.PaintBoardStandartColors(e, gameField);
                 ChessBoard.ChessBoard.PaintCellInYellow(gameField, e);
+
                 FiguresLogicProcessing.KingLogicProcessing(e, gameField);
+                ChessBoard.ChessBoard.CastlingProcessing( e , gameField, firstTurn, row, col, color);          
             }
         }
     }

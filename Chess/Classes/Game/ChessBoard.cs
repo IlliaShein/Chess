@@ -69,9 +69,61 @@ namespace Chess.Classes.ChessBoard
               .Cast<UIElement>()
               .First(e => Grid.GetRow(e) == row && Grid.GetColumn(e) == col) as Border;
 
-
             cell.Background = ChessColors.GetYellowRGB();
             colorBoard[row, col] = CellColor.YELLOW;
+        }
+
+        public static void CastlingProcessing(MouseButtonEventArgs e , Grid gameField , bool firstTurn, int row, int col, FigureColor color)
+        {
+            if (firstTurn && board[row, col + 1] == null
+              && board[row, col + 2] == null
+              && board[row, col + 3] != null
+              && board[row, col + 3] is Rook
+              && board[row, col + 3].color == color)
+            {
+                PaintCellInBlue(gameField, e, row, col + 3);
+            }
+            if (firstTurn && board[row, col - 1] == null
+                && board[row, col - 2] == null
+                && board[row, col - 3] == null
+                && board[row, col - 4] != null
+                && board[row, col - 4] is Rook
+                && board[row, col - 4].color == color)
+            {
+                PaintCellInBlue(gameField, e, row, col - 4);
+            }
+        }
+
+        public static void PaintCellInBlue(Grid gameField, MouseButtonEventArgs e, int row , int col)
+        {
+            Border cell = gameField.Children
+              .Cast<UIElement>()
+              .First(e => Grid.GetRow(e) == row && Grid.GetColumn(e) == col) as Border;
+
+            if (row % 2 == 0)
+            {
+                if (col % 2 == 0)
+                {
+                    cell.Background = ChessColors.GetBlueLightRGB();
+                }
+                else
+                {
+                    cell.Background = ChessColors.GetBlueDarkRGB();
+                }
+            }
+            else
+            {
+                if (col % 2 == 0)
+                {
+                    cell.Background = ChessColors.GetBlueDarkRGB();
+                }
+                else
+                {
+                    cell.Background = ChessColors.GetBlueLightRGB();
+                }
+            }
+
+            colorBoard[row, col] = CellColor.BLUE;
         }
 
         public static void MoveFigure(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
