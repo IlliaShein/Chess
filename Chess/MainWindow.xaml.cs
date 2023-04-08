@@ -189,9 +189,14 @@ namespace Chess
             Application.Current.Shutdown();
         }
 
+        private void FullScreenButton_Click(object sender, RoutedEventArgs e)
+        {
+            GameLogic.ScreenSizeButtonLogicProcession(StartWindow, GameField);
+        }
+
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+            DragMove();
         }
     }
 }

@@ -34,6 +34,22 @@ namespace Chess
             }
         }
 
+        public static void ScreenSizeButtonLogicProcession(Window window, Grid grid)
+        {
+            Button FullScreen = (Button)grid.FindName("ScreenSizeButton");
+
+            if (window.WindowState == WindowState.Normal)
+            {
+                window.WindowState = WindowState.Maximized;
+                FullScreen.Content = "Window";
+            }
+            else
+            {
+                window.WindowState = WindowState.Normal;
+                FullScreen.Content = "Full screen";
+            }
+        }
+
         public static void GameFieldClickLogicProcessing(MouseButtonEventArgs e, Grid GameField)
         {
             int row = Grid.GetRow((UIElement)e.Source);
