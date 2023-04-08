@@ -69,7 +69,28 @@ namespace Chess.Classes.ChessBoard
               .Cast<UIElement>()
               .First(e => Grid.GetRow(e) == row && Grid.GetColumn(e) == col) as Border;
 
-            cell.Background = ChessColors.GetYellowRGB();
+            if (row % 2 == 0)
+            {
+                if (col % 2 == 0)
+                {
+                    cell.Background = ChessColors.GetYellowLightRGB();
+                }
+                else
+                {
+                    cell.Background = ChessColors.GetYellowDarkRGB();
+                }
+            }
+            else
+            {
+                if (col % 2 == 0)
+                {
+                    cell.Background = ChessColors.GetYellowDarkRGB();
+                }
+                else
+                {
+                    cell.Background = ChessColors.GetYellowLightRGB();
+                }
+            }
             colorBoard[row, col] = CellColor.YELLOW;
         }
 

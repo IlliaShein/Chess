@@ -4,9 +4,13 @@ namespace Chess
 {
     public static class ChessColors
     {
-        public static SolidColorBrush GetYellowRGB()
+        public static SolidColorBrush GetYellowLightRGB()
         {
             return new SolidColorBrush(Color.FromRgb(255, 253, 148));
+        }
+        public static SolidColorBrush GetYellowDarkRGB()
+        {
+            return new SolidColorBrush(Color.FromRgb(200, 205, 79));
         }
         public static SolidColorBrush GetGreenLightRGB()
         {

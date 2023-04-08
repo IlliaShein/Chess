@@ -7,10 +7,19 @@ namespace ChessTests
     public class ChessColorsTests
     {
         [Fact]
-        public void GetYellowRGBTest()
+        public void GetYellowLightRGBTest()
         {
-            SolidColorBrush actual = ChessColors.GetYellowRGB();
+            SolidColorBrush actual = ChessColors.GetYellowLightRGB();
             SolidColorBrush expected = new SolidColorBrush(Color.FromRgb(255, 253, 148));
+
+            Assert.Equal(expected.ToString(), actual.ToString());
+        }
+
+        [Fact]
+        public void GetYellowDarkRGBTest()
+        {
+            SolidColorBrush actual = ChessColors.GetYellowDarkRGB();
+            SolidColorBrush expected = new SolidColorBrush(Color.FromRgb(200, 205, 79));
 
             Assert.Equal(expected.ToString(), actual.ToString());
         }
