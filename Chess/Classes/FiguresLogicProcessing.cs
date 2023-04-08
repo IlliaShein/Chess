@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Chess.Classes.Figures;
-using Chess.Classes.ChessBoard;
 
 namespace Chess.Classes
 {
@@ -14,8 +13,21 @@ namespace Chess.Classes
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            PaintCell(e, gameField, 1, 0);
-            if (((Pawn)ChessBoard.ChessBoard.board[row, col]).firstTurn == true)
+            if (row != 0 && col != 7 && ChessBoard.ChessBoard.board[row - 1, col + 1] != null &&
+                ChessBoard.ChessBoard.board[row - 1, col + 1].color != ChessBoard.ChessBoard.board[row, col].color)
+            {
+                PaintCell(e, gameField, 1, -1);
+            }
+            if (row != 0 && col != 0 && ChessBoard.ChessBoard.board[row - 1, col - 1] != null &&
+                ChessBoard.ChessBoard.board[row - 1, col - 1].color != ChessBoard.ChessBoard.board[row, col].color)
+            {
+                PaintCell(e, gameField, 1, 1);
+            }
+            if (row != 0 && ChessBoard.ChessBoard.board[row - 1, col] == null)
+            {
+                PaintCell(e, gameField, 1, 0);
+            }
+            if (row > 1 && ChessBoard.ChessBoard.board[row - 2, col] == null && ((Pawn)ChessBoard.ChessBoard.board[row, col]).firstTurn == true)
             {
                 PaintCell(e, gameField, 2, 0);
             }
@@ -26,8 +38,21 @@ namespace Chess.Classes
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            PaintCell(e, gameField, -1, 0);
-            if (((Pawn)ChessBoard.ChessBoard.board[row, col]).firstTurn == true)
+            if (row != 7 && col != 0 && ChessBoard.ChessBoard.board[row + 1, col -1] != null &&
+                ChessBoard.ChessBoard.board[row + 1, col - 1].color != ChessBoard.ChessBoard.board[row, col].color)
+            {
+                PaintCell(e, gameField, -1, 1);
+            }
+            if (row != 7 && col != 7 && ChessBoard.ChessBoard.board[row + 1, col + 1] != null &&
+                ChessBoard.ChessBoard.board[row + 1, col + 1].color != ChessBoard.ChessBoard.board[row, col].color)
+            {
+                PaintCell(e, gameField, -1, -1);
+            }
+            if (row != 7 && ChessBoard.ChessBoard.board[row + 1, col] == null)
+            {
+                PaintCell(e, gameField, -1, 0);
+            }
+            if (row < 6 && ChessBoard.ChessBoard.board[row + 2, col] == null && ((Pawn)ChessBoard.ChessBoard.board[row, col]).firstTurn == true)
             {
                 PaintCell(e, gameField, -2, 0);
             }
