@@ -33,7 +33,10 @@ namespace Chess.Classes.Figures
                 ChessBoard.ChessBoard.PaintCellInYellow(gameField, e);
 
                 FiguresLogicProcessing.KingLogicProcessing(e, gameField);
-                ChessBoard.ChessBoard.CastlingProcessing( e , gameField, firstTurn, row, col, color);          
+                if(!wasUnderCheck)
+                {
+                    ChessBoard.ChessBoard.CastlingProcessing(e, gameField, firstTurn, row, col, color);
+                }         
             }
         }
     }

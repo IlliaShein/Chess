@@ -8,28 +8,36 @@ namespace ChessTests
     public class ChessBoardTests
     {
         [Fact]
-        public void ConstructorTest1_ArraysSize()
+        public void FillColorBoardTest1()
         {
             ChessBoard.FillColorBoard();
-            ChessBoard.FillBoard();
 
-            int boardRowsReal = ChessBoard.board.GetLength(0);
-            int boardColumnsReal = ChessBoard.board.GetLength(1);
             int colorBoardRowsReal = ChessBoard.colorBoard.GetLength(0);
             int colorBoardColumnsReal = ChessBoard.colorBoard.GetLength(1);
 
             int expectedValue = 8;
 
-            Assert.Equal(expectedValue, boardRowsReal);
-            Assert.Equal(expectedValue, boardColumnsReal);
             Assert.Equal(expectedValue, colorBoardRowsReal);
             Assert.Equal(expectedValue, colorBoardColumnsReal);
         }
 
         [Fact]
-        public void ConstructorTest2_Types()
+        public void FillBoardTest1_Size()
         {
-            ChessBoard.FillColorBoard();
+            ChessBoard.FillBoard();
+
+            int boardRowsReal = ChessBoard.board.GetLength(0);
+            int boardColumnsReal = ChessBoard.board.GetLength(1);
+
+            int expectedValue = 8;
+
+            Assert.Equal(expectedValue, boardRowsReal);
+            Assert.Equal(expectedValue, boardColumnsReal);
+        }
+
+        [Fact]
+        public void FillBoardTest2_Types()
+        {
             ChessBoard.FillBoard();
 
             bool correctFilling = true;
@@ -42,9 +50,8 @@ namespace ChessTests
         }
 
         [Fact]
-        public void ConstructorTest3_Colors()
+        public void FillBoardTest3_Colors()
         {
-            ChessBoard.FillColorBoard();
             ChessBoard.FillBoard();
 
             bool correctColors = true;
@@ -57,9 +64,8 @@ namespace ChessTests
         }
 
         [Fact]
-        public void ConstructorTest4_Numbering()
+        public void FillBoard4_Numbering()
         {
-            ChessBoard.FillColorBoard();
             ChessBoard.FillBoard();
 
             bool correctNumbering = true;
@@ -73,7 +79,6 @@ namespace ChessTests
 
         private bool CheckNumbering()
         {
-            ChessBoard.FillColorBoard();
             ChessBoard.FillBoard();
 
             bool correctNumbering = true;
@@ -94,7 +99,6 @@ namespace ChessTests
 
         private bool CheckFiguresNumbering()
         {
-            ChessBoard.FillColorBoard();
             ChessBoard.FillBoard();
 
             bool correctNumbering = true;
@@ -113,7 +117,6 @@ namespace ChessTests
         }
         private bool CheckPawnNumbering()
         {
-            ChessBoard.FillColorBoard();
             ChessBoard.FillBoard();
 
             bool correctNumbering = true;
@@ -132,7 +135,6 @@ namespace ChessTests
 
         private bool CheckColors()
         {
-            ChessBoard.FillColorBoard();
             ChessBoard.FillBoard();
 
             bool correctColors = true;
@@ -176,7 +178,6 @@ namespace ChessTests
 
         private bool CheckTypes()
         {
-            ChessBoard.FillColorBoard();
             ChessBoard.FillBoard();
 
             bool correctFilling = true;
@@ -196,7 +197,6 @@ namespace ChessTests
         private bool CheckTypesColorBoard()
         {
             ChessBoard.FillColorBoard();
-            ChessBoard.FillBoard();
 
             bool correctFilling = true;
 
@@ -217,7 +217,6 @@ namespace ChessTests
 
         private bool CheckTypesBoard()
         {
-            ChessBoard.FillColorBoard();
             ChessBoard.FillBoard();
 
             bool correctFilling = true;
@@ -243,7 +242,6 @@ namespace ChessTests
 
         private bool CheckEmptyCells()
         {
-            ChessBoard.FillColorBoard();
             ChessBoard.FillBoard();
 
             bool correctFilling = true; 
@@ -265,7 +263,6 @@ namespace ChessTests
 
         private bool CheckPawns()
         {
-            ChessBoard.FillColorBoard();
             ChessBoard.FillBoard();
 
             bool correctFilling = true;
@@ -289,7 +286,6 @@ namespace ChessTests
 
         private bool CheckFiguresTypeRow( int row)
         {
-            ChessBoard.FillColorBoard();
             ChessBoard.FillBoard();
 
             bool correctFilling = true;
