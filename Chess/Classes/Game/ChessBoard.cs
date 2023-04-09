@@ -1,4 +1,5 @@
 ﻿using Chess.Classes.Figures;
+using Chess.Classes.Game;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,7 +11,8 @@ namespace Chess.Classes.ChessBoard
     public static class ChessBoard
     {
         private static bool ShowAvailableTurns = true;
-        public static ChessPiece[,] board = new ChessPiece[8, 8];
+        private static bool TurnBoardAroundAfterEachTurn = false;
+        public static ChessPiece[,] board = new ChessPiece[8, 9];
         public static CellColor[,] colorBoard = new CellColor[8, 8];
 
         public static void PaintBoardStandartColors(MouseButtonEventArgs e, Grid GameField)
@@ -53,6 +55,16 @@ namespace Chess.Classes.ChessBoard
         public static bool IfShowingAvailableTurns()
         {
             return ShowAvailableTurns;
+        }
+
+        public static bool IfBoardTurning()
+        {
+            return TurnBoardAroundAfterEachTurn;
+        }
+
+        public static void ChangeTurningMode(bool boardTurns)
+        {
+            TurnBoardAroundAfterEachTurn = boardTurns;
         }
 
         public static void SetShowingAvailableTurns(bool show)
@@ -173,8 +185,6 @@ namespace Chess.Classes.ChessBoard
         {
             CheckPawnAndKingFirstTurn(fromRow, fromCol);
 
-            GameNote.AddTurn(GameField, board, toRow, toCol, fromRow, fromCol);
-
             board[toRow, toCol] = board[fromRow, fromCol];
             board[fromRow, fromCol] = null;
 
@@ -192,7 +202,6 @@ namespace Chess.Classes.ChessBoard
                 ((King)board[row, col]).firstTurn = false;
             }
         }
-
         public static void PlaceOneFigureOnThePlaceOfAnother(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
         {
             CheckPawnAndKingFirstTurn(fromRow, fromCol);
@@ -203,6 +212,8 @@ namespace Chess.Classes.ChessBoard
             RemoveFigure(GameField, toRow, toCol);
 
             MoveImage(e, GameField, fromRow, fromCol, toRow, toCol);
+
+            SwitchSides(e, GameField);
         }
 
         private static void MoveImage(MouseButtonEventArgs e , Grid GameField, int fromRow, int fromCol, int toRow, int toCol)
@@ -281,6 +292,41 @@ namespace Chess.Classes.ChessBoard
                     colorBoard[i, j] = CellColor.EMPTY;
                 }
             }
+        }
+
+        public static void SwitchSides(MouseButtonEventArgs e, Grid GameField)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if(board[i, j] == null && board[7 - i, j] != null)
+                    {
+                        MoveFigureWithoutLogic(e, GameField, i, j, 7 - i, j);
+                    }
+                    else if(board[i, j] != null && board[7 - i, j] == null)
+                    {
+                        MoveFigureWithoutLogic(e, GameField, 7 - i, j, i, j);
+                    }
+                    else if(board[i, j] != null && board[7 - i, j] != null)
+                    {
+                        MoveFigureWithoutLogic(e, GameField, 0, 8, 7 - i, j);
+
+                        MoveFigureWithoutLogic(e, GameField, 7 - i, j, i, j);
+
+                        MoveFigureWithoutLogic(e, GameField, i, j, 0, 8);
+                    }
+                }
+            }
+        }
+
+        private static void MoveFigureWithoutLogic(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
+        {
+
+            board[toRow, toCol] = board[fromRow, fromCol];
+            board[fromRow, fromCol] = null;
+
+            MoveImage(e, GameField, fromRow, fromCol, toRow, toCol);
         }
     }
 }

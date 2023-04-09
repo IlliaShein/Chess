@@ -1,4 +1,5 @@
-﻿using Chess.Classes.ChessBoard;
+﻿using Chess.Classes;
+using Chess.Classes.ChessBoard;
 using Chess.Classes.Figures;
 using Chess.Classes.Game;
 using System.Windows;
@@ -69,7 +70,14 @@ namespace Chess
                         if (ChessBoard.colorBoard[i, j] == CellColor.YELLOW)
                         {
                             Turn.changeColor();
+
                             ChessBoard.MoveFigure(e, GameField, row, col, i, j);
+                            GameNote.AddTurn(GameField, i, j, row, col);
+
+                            if (ChessBoard.IfBoardTurning())
+                            {
+                                ChessBoard.SwitchSides(e, GameField );
+                            }
                         }
                     }
                 }

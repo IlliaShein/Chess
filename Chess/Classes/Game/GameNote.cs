@@ -7,12 +7,12 @@ namespace Chess.Classes
 {
     public static class GameNote
     {
-        public static void AddTurn(Grid grid, ChessPiece[,] board,int toRow, int toCol, int fromRow, int fromCol)
+        public static void AddTurn(Grid grid,int toRow, int toCol, int fromRow, int fromCol)
         {
             TextBlock gameNote = (TextBlock)grid.FindName("GameNote");
             string turn = "";
 
-            if (board[fromRow, fromCol] is Pawn)
+            if (ChessBoard.ChessBoard.board[fromRow, fromCol] is Pawn)
             {
                 switch (fromCol)
                 {
@@ -72,28 +72,28 @@ namespace Chess.Classes
                 }
                 turn += Convert.ToString(8 - (toRow)) + " ; ";
             }
-            else if (board[fromRow, fromCol] is Rook)
+            else if (ChessBoard.ChessBoard.board[fromRow, fromCol] is Rook)
             {
                 turn = getMoveOfFigure(toCol, toRow, "R");
             }
-            else if (board[fromRow, fromCol] is Knight)
+            else if (ChessBoard.ChessBoard.board[fromRow, fromCol] is Knight)
             {
                 turn = getMoveOfFigure(toCol, toRow, "N");
             }
-            else if (board[fromRow, fromCol] is Bishop)
+            else if (ChessBoard.ChessBoard.board[fromRow, fromCol] is Bishop)
             {
                 turn = getMoveOfFigure(toCol, toRow, "B");
             }
-            else if (board[fromRow, fromCol] is King)
+            else if (ChessBoard.ChessBoard.board[fromRow, fromCol] is King)
             {
                 turn = getMoveOfFigure(toCol, toRow, "K");
             }
-            else if (board[fromRow, fromCol] is Queen)
+            else if (ChessBoard.ChessBoard.board[fromRow, fromCol] is Queen)
             {
                 turn = getMoveOfFigure(toCol, toRow, "Q");
             }
 
-            if (board[fromRow, fromCol].color == FigureColor.WHITE)
+            if (ChessBoard.ChessBoard.board[fromRow, fromCol].color == FigureColor.WHITE)
             {
                 var newSpan = new Span(new Run(turn) { Foreground = ChessColors.GetWhiteRGB() });
                 gameNote.Inlines.Add(newSpan);

@@ -5,9 +5,6 @@ using System.Windows.Input;
 
 namespace Chess.Windows
 {
-    /// <summary>
-    /// Interaction logic for Options.xaml
-    /// </summary>
     public partial class Options : Window
     {
         public Options()
@@ -16,6 +13,7 @@ namespace Chess.Windows
 
             ShowRealTimeButton.IsChecked = ChessClock.IfTimeShowing();
             ShowAvailableTurnsButton.IsChecked = ChessBoard.IfShowingAvailableTurns();
+            ReverseBoardButton.IsChecked = ChessBoard.IfBoardTurning();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -61,6 +59,16 @@ namespace Chess.Windows
         private void ShowAvailableTurnsButton_Unchecked(object sender, RoutedEventArgs e)
         {
             ChessBoard.SetShowingAvailableTurns(false);
+        }
+
+        private void ReverseBoardButton_Checked(object sender, RoutedEventArgs e)
+        {
+            ChessBoard.ChangeTurningMode(true);
+        }
+
+        private void ReverseBoardButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ChessBoard.ChangeTurningMode(false);
         }
     }
 }

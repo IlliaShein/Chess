@@ -29,7 +29,7 @@ namespace Chess.Classes.Figures
                 ChessBoard.ChessBoard.PaintBoardStandartColors(e, gameField);
                 ChessBoard.ChessBoard.PaintCellInYellow(gameField, e);
 
-                if (color == FigureColor.WHITE)
+                if (ChessBoard.ChessBoard.IfBoardTurning() == true ||  color == FigureColor.WHITE)
                 {
                     FiguresLogicProcessing.WhitePawnLogicProcessing(e, gameField);
                 }
