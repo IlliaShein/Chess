@@ -60,6 +60,17 @@ namespace Chess.Classes.ChessBoard
             ShowAvailableTurns = show;
         }
 
+        public static void ClearBoard()
+        {
+            for (int i = 0; i < board.GetLength(0); i++)
+            {
+                for (int j = 0; j < board.GetLength(1); j++)
+                {
+                    board[i, j] = null;
+                }
+            }
+        }
+
         public static void ClearColorBoard()
         {
             for (int i = 0; i < colorBoard.GetLength(0); i++)

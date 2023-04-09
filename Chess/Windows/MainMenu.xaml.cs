@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Chess.Classes.Game;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Chess.Windows
@@ -21,6 +22,10 @@ namespace Chess.Windows
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow newWindow = new MainWindow();
+
+            
+
+
             if (this.WindowState == WindowState.Normal)
             {
                 newWindow.WindowState = WindowState.Normal;

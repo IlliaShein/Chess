@@ -10,6 +10,11 @@
             return TurnColor;
         }
 
+        public static void SetColor(FigureColor color)
+        {
+            TurnColor = color;
+        }
+
         public static void changeColor()
         {
             if(TurnColor == FigureColor.WHITE)

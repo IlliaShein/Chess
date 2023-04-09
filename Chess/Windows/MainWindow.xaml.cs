@@ -12,8 +12,11 @@ namespace Chess
         public MainWindow()
         {
             InitializeComponent();
+
+            ChessBoard.ClearBoard();
             ChessBoard.FillBoard();
             ChessBoard.FillColorBoard();
+            Turn.SetColor(FigureColor.WHITE);
         }
 
         private void WhitePawn0_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
