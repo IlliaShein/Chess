@@ -54,6 +54,16 @@ namespace Chess.Windows
             {
                 newWindow.WindowState = WindowState.Maximized;
             }
+
+            if (WindowState == WindowState.Normal)
+            {
+                newWindow.ScreenSizeButton.Content = "Full screen";
+            }
+            else // WindowState == WindowState.Maximized
+            {
+                newWindow.ScreenSizeButton.Content = "Window";
+            }
+
             newWindow.Show();
             Close();
         }

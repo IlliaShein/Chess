@@ -13,6 +13,7 @@ namespace Chess.Windows
         public Options()
         {
             InitializeComponent();
+
             ShowRealTimeButton.IsChecked = ChessClock.IfTimeShowing();
             ShowAvailableTurnsButton.IsChecked = ChessBoard.IfShowingAvailableTurns();
         }
