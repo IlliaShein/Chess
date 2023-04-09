@@ -1,6 +1,7 @@
 ﻿using Chess.Classes.ChessBoard;
 using Chess.Classes.Figures;
 using Chess.Classes.Game;
+using Chess.Windows;
 using System.Windows;
 using System.Windows.Input;
 
@@ -184,9 +185,11 @@ namespace Chess
             ChessClock.SetClock(RealTimeTB);
         }
 
-        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            MainMenu newWindow = new MainMenu();
+            newWindow.Show();
+            this.Close();
         }
 
         private void FullScreenButton_Click(object sender, RoutedEventArgs e)

@@ -38,5 +38,10 @@ namespace Chess.Windows
             newWindow.Show();
             this.Close();
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }
