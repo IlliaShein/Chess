@@ -43,5 +43,12 @@ namespace Chess.Windows
         {
             DragMove();
         }
+
+        private void OptionsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Options newWindow = new Options();
+            newWindow.Show();
+            this.Close();
+        }
     }
 }

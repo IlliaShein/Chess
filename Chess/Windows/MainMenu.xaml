@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:Chess.Windows"
         mc:Ignorable="d"
         Title="MainMenu" Height="450" Width="800"
+        WindowStyle="None"
         MouseDown="Window_MouseDown">
     <Grid x:Name="GridMainMenu" Background="#FF3A3939">
         <Grid.ColumnDefinitions>
@@ -25,7 +26,7 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Text="Chess" Margin="25" Foreground="White" FontSize="45" FontWeight="Normal" FontFamily="Arial Black" TextAlignment="Center"/>
         <Button x:Name="StartGameButton" Grid.Column="1" Grid.Row="2" Margin="8" Background="#FF408AF6" Content="Singleplayer" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black" Click="StartGameButton_Click"/>
-        <Button x:Name="OptionsButton" Grid.Column="1" Grid.Row="3" Margin="8" Background="#FF408AF6" Content="Options" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black"/>
+        <Button x:Name="OptionsButton" Grid.Column="1" Grid.Row="3" Margin="8" Background="#FF408AF6" Content="Options" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black" Click="OptionsButton_Click"/>
         <Button x:Name="ScreenSizeButton" Grid.Column="1" Grid.Row="4" Margin="8" Click="ScreenSizeButton_Click" Background="#FF408AF6" Content="Full screen" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black"/>
         <Button x:Name="ExitButton" Grid.Column="1" Grid.Row="5" Margin="8" Click="ExitButton_Click" Background="#FFF64040" Content="Exit" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black"/>
     </Grid>
