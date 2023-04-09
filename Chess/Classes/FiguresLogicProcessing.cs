@@ -386,11 +386,18 @@ namespace Chess.Classes
 
             if (ChessBoard.ChessBoard.board[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] == null)
             {
-                ChooseGreenColorForCell(cell, row + rowOffsetFromChosenCell, col + colOffsetFromChosenCell);
+                if(ChessBoard.ChessBoard.IfShowingAvailableTurns())
+                {
+                    ChooseGreenColorForCell(cell, row + rowOffsetFromChosenCell, col + colOffsetFromChosenCell);
+                }
                 ChessBoard.ChessBoard.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] = CellColor.GREEN;
             }
             else if (ChessBoard.ChessBoard.board[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)].color != ChessBoard.ChessBoard.board[row, col].color)
             {
+                if(ChessBoard.ChessBoard.IfShowingAvailableTurns())
+                {
+                    ChooseGreenColorForCell(cell, row + rowOffsetFromChosenCell, col + colOffsetFromChosenCell);
+                }
                 ChooseRedColorForCell(cell, row + rowOffsetFromChosenCell, col + colOffsetFromChosenCell);
                 ChessBoard.ChessBoard.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] = CellColor.RED;
             }

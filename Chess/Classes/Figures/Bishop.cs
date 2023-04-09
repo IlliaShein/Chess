@@ -28,6 +28,7 @@ namespace Chess.Classes.Figures
                 ChessBoard.ChessBoard.PaintBoardStandartColors(e, gameField);
                 ChessBoard.ChessBoard.PaintCellInYellow(gameField, e);
                 FiguresLogicProcessing.BishopLogicProcessing(e, gameField);
+
             }
         }
     }

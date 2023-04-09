@@ -138,7 +138,7 @@
         <Border Grid.Column = "8" Grid.Row="8" Background="#FF494949"/>
 
         <TextBlock x:Name="GameNote" Grid.Column = "9" Grid.Row="0"   TextTrimming="WordEllipsis" TextWrapping="Wrap" Grid.RowSpan="6" Background="#FF3A3939" Foreground="White" FontSize="14" FontFamily="Cascadia Code"/>
-        <TextBlock x:Name="RealTimeTB" Grid.Column = "9" Grid.Row="9"   TextTrimming="WordEllipsis" TextWrapping="Wrap" Background="#FF3A3939" Foreground="White" FontSize="14" FontFamily="Cascadia Code" Loaded="RealTimeTB_Loaded"/>
+        <TextBlock x:Name="RealTimeTB" Grid.Column = "9" Grid.Row="9"   TextTrimming="WordEllipsis" TextWrapping="Wrap" Background="#FF3A3939" Foreground="White" FontSize="14" FontFamily="Cascadia Code" Loaded="RealTimeTB_Loaded" TextAlignment="Center"/>
 
         <Border Grid.Column = "9" Grid.Row="6" Background="#FF3A3939"/>
 

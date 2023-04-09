@@ -9,6 +9,7 @@ namespace Chess.Classes.ChessBoard
     
     public static class ChessBoard
     {
+        private static bool ShowAvailableTurns = true;
         public static ChessPiece[,] board = new ChessPiece[8, 8];
         public static CellColor[,] colorBoard = new CellColor[8, 8];
 
@@ -47,6 +48,16 @@ namespace Chess.Classes.ChessBoard
                 }
             }
             ClearColorBoard();
+        }
+
+        public static bool IfShowingAvailableTurns()
+        {
+            return ShowAvailableTurns;
+        }
+
+        public static void SetShowingAvailableTurns(bool show)
+        {
+            ShowAvailableTurns = show;
         }
 
         public static void ClearColorBoard()

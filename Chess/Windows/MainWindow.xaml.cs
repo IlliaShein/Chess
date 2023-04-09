@@ -182,7 +182,10 @@ namespace Chess
 
         private void RealTimeTB_Loaded(object sender, RoutedEventArgs e)
         {
-            ChessClock.SetClock(RealTimeTB);
+            if(ChessClock.IfTimeShowing())
+            {
+                ChessClock.SetClock(RealTimeTB);
+            }
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
