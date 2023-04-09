@@ -188,13 +188,16 @@ namespace Chess
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             MainMenu newWindow = new MainMenu();
+            if (this.WindowState == WindowState.Normal)
+            {
+                newWindow.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                newWindow.WindowState = WindowState.Maximized;
+            }
             newWindow.Show();
-            this.Close();
-        }
-
-        private void FullScreenButton_Click(object sender, RoutedEventArgs e)
-        {
-            GameLogic.ScreenSizeButtonLogicProcession(StartWindow, GameField);
+            Close();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

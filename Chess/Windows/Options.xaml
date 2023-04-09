@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Chess.Windows"
         mc:Ignorable="d"
         WindowStyle="None"
+        Name="OptionsWindow"
         Title="Options" Height="450" Width="800"
         MouseDown="Window_MouseDown">
     <Grid x:Name="GridOptions" Background="#FF3A3939">
@@ -22,6 +23,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
+        <Button x:Name="ScreenSizeButton" Grid.Column="1" Grid.Row="2" Margin="8" Background="#FF408AF6" Content="Window" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black" Click="ScreenSizeButton_Click"/>
         <Button x:Name="BackButton" Grid.Column="1" Grid.Row="3" Margin="8" Background="#FF408AF6" Content="Back" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black" Click="BackButton_Click"/>
         
     </Grid>

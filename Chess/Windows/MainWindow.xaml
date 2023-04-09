@@ -141,9 +141,8 @@
         <TextBlock x:Name="RealTimeTB" Grid.Column = "9" Grid.Row="9"   TextTrimming="WordEllipsis" TextWrapping="Wrap" Background="#FF3A3939" Foreground="White" FontSize="14" FontFamily="Cascadia Code" Loaded="RealTimeTB_Loaded"/>
 
         <Border Grid.Column = "9" Grid.Row="6" Background="#FF3A3939"/>
-            <Button x:Name="ScreenSizeButton" Grid.Column = "9" Grid.Row="6" Margin="8" Background="#FF408AF6" Click="FullScreenButton_Click" Content="Full screen" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black"/>
-            
-        <Border Grid.Column = "9" Grid.Row="7" Background="#FF3A3939"/>
+
+            <Border Grid.Column = "9" Grid.Row="7" Background="#FF3A3939"/>
         <Button x:Name="MenuButton" Grid.Column = "9" Grid.Row="7" Margin="8" Background="#FF408AF6" Click="MenuButton_Click" Content="Menu" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black"/>
 
         <Image x:Name="BlackPawn0" Grid.Column = "0" Grid.Row="1" Stretch="Fill" Source="C:\Users\Illy\Desktop\НУЛП\BlackPawn.png" MouseLeftButtonDown="BlackPawn0_MouseLeftButtonDown"/>

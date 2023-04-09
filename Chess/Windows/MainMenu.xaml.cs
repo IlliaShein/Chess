@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Chess.Windows
 {
@@ -27,16 +18,19 @@ namespace Chess.Windows
             Application.Current.Shutdown();
         }
 
-        private void ScreenSizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            GameLogic.ScreenSizeButtonLogicProcession(MainMenuWindow, GridMainMenu);
-        }
-
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow newWindow = new MainWindow();
+            if (this.WindowState == WindowState.Normal)
+            {
+                newWindow.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                newWindow.WindowState = WindowState.Maximized;
+            }
             newWindow.Show();
-            this.Close();
+            Close();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -47,8 +41,16 @@ namespace Chess.Windows
         private void OptionsButton_Click(object sender, RoutedEventArgs e)
         {
             Options newWindow = new Options();
+            if (this.WindowState == WindowState.Normal)
+            {
+                newWindow.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                newWindow.WindowState = WindowState.Maximized;
+            }
             newWindow.Show();
-            this.Close();
+            Close();
         }
     }
 }
