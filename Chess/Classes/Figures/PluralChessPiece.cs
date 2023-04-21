@@ -2,12 +2,12 @@
 {
     abstract public class PluralChessPiece : ChessPiece
     {
-        public int number;
+        public int Number;
 
         protected PluralChessPiece(FigureColor color, int number )
             : base(color)
         {
-            this.number = number;
+            Number = number;
         }
     }
 }

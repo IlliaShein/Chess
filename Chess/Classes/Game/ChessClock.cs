@@ -6,7 +6,7 @@ namespace Chess.Classes.Game
 {
     public static class ChessClock
     {
-        private static bool ShowTime = true;
+        private static bool _showTime = true;
         public static void SetClock(TextBlock textBlock)
         {
             var timer = new DispatcherTimer();
@@ -17,12 +17,12 @@ namespace Chess.Classes.Game
 
         public static bool IfTimeShowing()
         {
-            return ShowTime;
+            return _showTime;
         }
 
         public static void SetShowing(bool show)
         {
-            ShowTime = show;
+            _showTime = show;
         }
     }
 }

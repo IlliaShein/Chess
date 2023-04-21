@@ -13,9 +13,9 @@ namespace Chess
     {
         public static void SelectPiece<T>(FigureColor color, int number, MouseButtonEventArgs e, Grid GameField) where T : PluralChessPiece
         {
-            foreach (ChessPiece figure in ChessBoard.board)
+            foreach (ChessPiece figure in ChessBoard.Board)
             {
-                if (figure is T && ((T)figure).color == color && ((T)figure).number == number)
+                if (figure is T && ((T)figure).Сolor == color && ((T)figure).Number == number)
                 {
                     T Figure = (T)figure;
                     Figure.Select(GameField, e);
@@ -25,9 +25,9 @@ namespace Chess
 
         public static void SelectPiece<T>(FigureColor color, MouseButtonEventArgs e, Grid GameField) where T : ChessPiece
         {
-            foreach (ChessPiece figure in ChessBoard.board)
+            foreach (ChessPiece figure in ChessBoard.Board)
             {
-                if (figure is T && ((T)figure).color == color)
+                if (figure is T && ((T)figure).Сolor == color)
                 {
                     T Figure = (T)figure;
                     Figure.Select(GameField, e);
@@ -61,13 +61,13 @@ namespace Chess
                 return; 
             }
 
-            if (ChessBoard.colorBoard[row, col] == CellColor.GREEN) //|| Board.colorBoard[row, col] == CellColor.RED
+            if (ChessBoard.ColorBoard[row, col] == CellColor.GREEN)
             {
-                for (int i = 0; i < ChessBoard.colorBoard.GetLength(0); i++)
+                for (int i = 0; i < ChessBoard.ColorBoard.GetLength(0); i++)
                 {
-                    for (int j = 0; j < ChessBoard.colorBoard.GetLength(1); j++)
+                    for (int j = 0; j < ChessBoard.ColorBoard.GetLength(1); j++)
                     {
-                        if (ChessBoard.colorBoard[i, j] == CellColor.YELLOW)
+                        if (ChessBoard.ColorBoard[i, j] == CellColor.YELLOW)
                         {
                             Turn.changeColor();
 
@@ -82,7 +82,7 @@ namespace Chess
                     }
                 }
             }
-            else if (ChessBoard.colorBoard[row, col] != CellColor.YELLOW)
+            else if (ChessBoard.ColorBoard[row, col] != CellColor.YELLOW)
             {
                 ChessBoard.PaintBoardStandartColors(e,GameField);
             }

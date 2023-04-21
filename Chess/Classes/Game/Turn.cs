@@ -2,28 +2,28 @@
 {
     public static class Turn
     {
-        private static FigureColor TurnColor = FigureColor.WHITE;
+        private static FigureColor _turnColor = FigureColor.WHITE;
 
 
         public static FigureColor GetTurnColor()
         {
-            return TurnColor;
+            return _turnColor;
         }
 
         public static void SetColor(FigureColor color)
         {
-            TurnColor = color;
+            _turnColor = color;
         }
 
         public static void changeColor()
         {
-            if(TurnColor == FigureColor.WHITE)
+            if(_turnColor == FigureColor.WHITE)
             {
-                TurnColor = FigureColor.BLACK;
+                _turnColor = FigureColor.BLACK;
             }
             else
             {
-                TurnColor = FigureColor.WHITE;
+                _turnColor = FigureColor.WHITE;
             }
         }
     }

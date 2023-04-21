@@ -17,12 +17,12 @@ namespace Chess.Classes.Figures
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            if (ChessBoard.ChessBoard.colorBoard[row, col] == CellColor.RED)
+            if (ChessBoard.ChessBoard.ColorBoard[row, col] == CellColor.RED)
             {
                 Turn.changeColor();
                 ChessBoard.ChessBoard.AttackFigure(e, gameField, row, col);
             }
-            else if(Turn.GetTurnColor() == color)
+            else if(Turn.GetTurnColor() == Сolor)
             {
                 ChessBoard.ChessBoard.PaintBoardStandartColors(e, gameField);
                 ChessBoard.ChessBoard.PaintCellInYellow(gameField, e);

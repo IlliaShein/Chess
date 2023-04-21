@@ -13,21 +13,21 @@ namespace Chess.Classes
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            if (row != 0 && col != 7 && ChessBoard.ChessBoard.board[row - 1, col + 1] != null &&
-                ChessBoard.ChessBoard.board[row - 1, col + 1].color != ChessBoard.ChessBoard.board[row, col].color)
+            if (row != 0 && col != 7 && ChessBoard.ChessBoard.Board[row - 1, col + 1] != null &&
+                ChessBoard.ChessBoard.Board[row - 1, col + 1].Сolor != ChessBoard.ChessBoard.Board[row, col].Сolor)
             {
                 PaintCell(e, gameField, 1, -1);
             }
-            if (row != 0 && col != 0 && ChessBoard.ChessBoard.board[row - 1, col - 1] != null &&
-                ChessBoard.ChessBoard.board[row - 1, col - 1].color != ChessBoard.ChessBoard.board[row, col].color)
+            if (row != 0 && col != 0 && ChessBoard.ChessBoard.Board[row - 1, col - 1] != null &&
+                ChessBoard.ChessBoard.Board[row - 1, col - 1].Сolor != ChessBoard.ChessBoard.Board[row, col].Сolor)
             {
                 PaintCell(e, gameField, 1, 1);
             }
-            if (row != 0 && ChessBoard.ChessBoard.board[row - 1, col] == null)
+            if (row != 0 && ChessBoard.ChessBoard.Board[row - 1, col] == null)
             {
                 PaintCell(e, gameField, 1, 0);
             }
-            if (row > 1 && ChessBoard.ChessBoard.board[row - 2, col] == null && ((Pawn)ChessBoard.ChessBoard.board[row, col]).firstTurn == true)
+            if (row > 1 && ChessBoard.ChessBoard.Board[row - 2, col] == null && ((Pawn)ChessBoard.ChessBoard.Board[row, col]).FirstTurn == true)
             {
                 PaintCell(e, gameField, 2, 0);
             }
@@ -38,21 +38,21 @@ namespace Chess.Classes
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            if (row != 7 && col != 0 && ChessBoard.ChessBoard.board[row + 1, col -1] != null &&
-                ChessBoard.ChessBoard.board[row + 1, col - 1].color != ChessBoard.ChessBoard.board[row, col].color)
+            if (row != 7 && col != 0 && ChessBoard.ChessBoard.Board[row + 1, col -1] != null &&
+                ChessBoard.ChessBoard.Board[row + 1, col - 1].Сolor != ChessBoard.ChessBoard.Board[row, col].Сolor)
             {
                 PaintCell(e, gameField, -1, 1);
             }
-            if (row != 7 && col != 7 && ChessBoard.ChessBoard.board[row + 1, col + 1] != null &&
-                ChessBoard.ChessBoard.board[row + 1, col + 1].color != ChessBoard.ChessBoard.board[row, col].color)
+            if (row != 7 && col != 7 && ChessBoard.ChessBoard.Board[row + 1, col + 1] != null &&
+                ChessBoard.ChessBoard.Board[row + 1, col + 1].Сolor != ChessBoard.ChessBoard.Board[row, col].Сolor)
             {
                 PaintCell(e, gameField, -1, -1);
             }
-            if (row != 7 && ChessBoard.ChessBoard.board[row + 1, col] == null)
+            if (row != 7 && ChessBoard.ChessBoard.Board[row + 1, col] == null)
             {
                 PaintCell(e, gameField, -1, 0);
             }
-            if (row < 6 && ChessBoard.ChessBoard.board[row + 2, col] == null && ((Pawn)ChessBoard.ChessBoard.board[row, col]).firstTurn == true)
+            if (row < 6 && ChessBoard.ChessBoard.Board[row + 2, col] == null && ((Pawn)ChessBoard.ChessBoard.Board[row, col]).FirstTurn == true)
             {
                 PaintCell(e, gameField, -2, 0);
             }
@@ -384,22 +384,22 @@ namespace Chess.Classes
                 .First(e => Grid.GetRow(e) + rowOffsetFromChosenCell == row && Grid.GetColumn(e) + colOffsetFromChosenCell == col) as Border;
 
 
-            if (ChessBoard.ChessBoard.board[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] == null)
+            if (ChessBoard.ChessBoard.Board[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] == null)
             {
                 if(ChessBoard.ChessBoard.IfShowingAvailableTurns())
                 {
                     ChooseGreenColorForCell(cell, row + rowOffsetFromChosenCell, col + colOffsetFromChosenCell);
                 }
-                ChessBoard.ChessBoard.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] = CellColor.GREEN;
+                ChessBoard.ChessBoard.ColorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] = CellColor.GREEN;
             }
-            else if (ChessBoard.ChessBoard.board[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)].color != ChessBoard.ChessBoard.board[row, col].color)
+            else if (ChessBoard.ChessBoard.Board[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)].Сolor != ChessBoard.ChessBoard.Board[row, col].Сolor)
             {
                 if(ChessBoard.ChessBoard.IfShowingAvailableTurns())
                 {
                     ChooseGreenColorForCell(cell, row + rowOffsetFromChosenCell, col + colOffsetFromChosenCell);
                 }
                 ChooseRedColorForCell(cell, row + rowOffsetFromChosenCell, col + colOffsetFromChosenCell);
-                ChessBoard.ChessBoard.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] = CellColor.RED;
+                ChessBoard.ChessBoard.ColorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] = CellColor.RED;
             }
         }
 
@@ -465,7 +465,7 @@ namespace Chess.Classes
                 .Cast<UIElement>()
                 .First(e => Grid.GetRow(e) + rowOffsetFromChosenCell == row && Grid.GetColumn(e) + colOffsetFromChosenCell == col) as Border;
 
-            if (ChessBoard.ChessBoard.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] == CellColor.RED)
+            if (ChessBoard.ChessBoard.ColorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] == CellColor.RED)
             {
                 return true;
             }
@@ -484,7 +484,7 @@ namespace Chess.Classes
                 .Cast<UIElement>()
                 .First(e => Grid.GetRow(e) + rowOffsetFromChosenCell == row && Grid.GetColumn(e) + colOffsetFromChosenCell == col) as Border;
 
-            if (ChessBoard.ChessBoard.colorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] == CellColor.EMPTY)
+            if (ChessBoard.ChessBoard.ColorBoard[row + rowOffsetFromChosenCell * (-1), col + colOffsetFromChosenCell * (-1)] == CellColor.EMPTY)
             {
                 return true;
             }

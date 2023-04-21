@@ -7,14 +7,14 @@ namespace Chess.Classes.Figures
 {
     public class King : ChessPiece
     {
-        public bool firstTurn;
-        bool wasUnderCheck;
+        public bool FirstTurn;
+        private bool _wasUnderCheck;
 
         public King(FigureColor color)
             : base(color)
         {
-            firstTurn = true;
-            wasUnderCheck = false;
+            FirstTurn = true;
+            _wasUnderCheck = false;
         }
 
         public override void Select(Grid gameField, MouseButtonEventArgs e)
@@ -22,20 +22,20 @@ namespace Chess.Classes.Figures
             int row = Grid.GetRow((UIElement)e.Source);
             int col = Grid.GetColumn((UIElement)e.Source);
 
-            if (ChessBoard.ChessBoard.colorBoard[row, col] == CellColor.RED)
+            if (ChessBoard.ChessBoard.ColorBoard[row, col] == CellColor.RED)
             {
                 Turn.changeColor();
                 ChessBoard.ChessBoard.AttackFigure(e, gameField, row, col);
             }
-            else if (Turn.GetTurnColor() == color)
+            else if (Turn.GetTurnColor() == Сolor)
             {
                 ChessBoard.ChessBoard.PaintBoardStandartColors(e, gameField);
                 ChessBoard.ChessBoard.PaintCellInYellow(gameField, e);
 
                 FiguresLogicProcessing.KingLogicProcessing(e, gameField);
-                if(!wasUnderCheck)
+                if(!_wasUnderCheck)
                 {
-                    ChessBoard.ChessBoard.CastlingProcessing(e, gameField, firstTurn, row, col, color);
+                    ChessBoard.ChessBoard.CastlingProcessing(e, gameField, FirstTurn, row, col, Сolor);
                 }         
             }
         }

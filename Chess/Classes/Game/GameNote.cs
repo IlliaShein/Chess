@@ -12,7 +12,7 @@ namespace Chess.Classes
             TextBlock gameNote = (TextBlock)grid.FindName("GameNote");
             string turn = "";
 
-            if (ChessBoard.ChessBoard.board[fromRow, fromCol] is Pawn)
+            if (ChessBoard.ChessBoard.Board[fromRow, fromCol] is Pawn)
             {
                 switch (fromCol)
                 {
@@ -72,28 +72,28 @@ namespace Chess.Classes
                 }
                 turn += Convert.ToString(8 - (toRow)) + " ; ";
             }
-            else if (ChessBoard.ChessBoard.board[fromRow, fromCol] is Rook)
+            else if (ChessBoard.ChessBoard.Board[fromRow, fromCol] is Rook)
             {
                 turn = getMoveOfFigure(toCol, toRow, "R");
             }
-            else if (ChessBoard.ChessBoard.board[fromRow, fromCol] is Knight)
+            else if (ChessBoard.ChessBoard.Board[fromRow, fromCol] is Knight)
             {
                 turn = getMoveOfFigure(toCol, toRow, "N");
             }
-            else if (ChessBoard.ChessBoard.board[fromRow, fromCol] is Bishop)
+            else if (ChessBoard.ChessBoard.Board[fromRow, fromCol] is Bishop)
             {
                 turn = getMoveOfFigure(toCol, toRow, "B");
             }
-            else if (ChessBoard.ChessBoard.board[fromRow, fromCol] is King)
+            else if (ChessBoard.ChessBoard.Board[fromRow, fromCol] is King)
             {
                 turn = getMoveOfFigure(toCol, toRow, "K");
             }
-            else if (ChessBoard.ChessBoard.board[fromRow, fromCol] is Queen)
+            else if (ChessBoard.ChessBoard.Board[fromRow, fromCol] is Queen)
             {
                 turn = getMoveOfFigure(toCol, toRow, "Q");
             }
 
-            if (ChessBoard.ChessBoard.board[fromRow, fromCol].color == FigureColor.WHITE)
+            if (ChessBoard.ChessBoard.Board[fromRow, fromCol].Сolor == FigureColor.WHITE)
             {
                 var newSpan = new Span(new Run(turn) { Foreground = ChessColors.GetWhiteRGB() });
                 gameNote.Inlines.Add(newSpan);

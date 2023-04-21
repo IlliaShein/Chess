@@ -1,5 +1,4 @@
 ﻿using Chess.Classes.Figures;
-using Chess.Classes.Game;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,10 +9,10 @@ namespace Chess.Classes.ChessBoard
     
     public static class ChessBoard
     {
-        private static bool ShowAvailableTurns = true;
-        private static bool TurnBoardAroundAfterEachTurn = false;
-        public static ChessPiece[,] board = new ChessPiece[8, 9];
-        public static CellColor[,] colorBoard = new CellColor[8, 8];
+        private static bool _showAvailableTurns = true;
+        private static bool _turnBoardAroundAfterEachTurn = false;
+        public static ChessPiece[,] Board = new ChessPiece[8, 9];
+        public static CellColor[,] ColorBoard = new CellColor[8, 8];
 
         public static void PaintBoardStandartColors(MouseButtonEventArgs e, Grid GameField)
         {
@@ -54,42 +53,42 @@ namespace Chess.Classes.ChessBoard
 
         public static bool IfShowingAvailableTurns()
         {
-            return ShowAvailableTurns;
+            return _showAvailableTurns;
         }
 
         public static bool IfBoardTurning()
         {
-            return TurnBoardAroundAfterEachTurn;
+            return _turnBoardAroundAfterEachTurn;
         }
 
         public static void ChangeTurningMode(bool boardTurns)
         {
-            TurnBoardAroundAfterEachTurn = boardTurns;
+            _turnBoardAroundAfterEachTurn = boardTurns;
         }
 
         public static void SetShowingAvailableTurns(bool show)
         {
-            ShowAvailableTurns = show;
+            _showAvailableTurns = show;
         }
 
         public static void ClearBoard()
         {
-            for (int i = 0; i < board.GetLength(0); i++)
+            for (int i = 0; i < Board.GetLength(0); i++)
             {
-                for (int j = 0; j < board.GetLength(1); j++)
+                for (int j = 0; j < Board.GetLength(1); j++)
                 {
-                    board[i, j] = null;
+                    Board[i, j] = null;
                 }
             }
         }
 
         public static void ClearColorBoard()
         {
-            for (int i = 0; i < colorBoard.GetLength(0); i++)
+            for (int i = 0; i < ColorBoard.GetLength(0); i++)
             {
-                for (int j = 0; j < colorBoard.GetLength(1); j++)
+                for (int j = 0; j < ColorBoard.GetLength(1); j++)
                 {
-                    colorBoard[i, j] = CellColor.EMPTY;
+                    ColorBoard[i, j] = CellColor.EMPTY;
                 }
             }
         }
@@ -125,25 +124,25 @@ namespace Chess.Classes.ChessBoard
                     cell.Background = ChessColors.GetYellowLightRGB();
                 }
             }
-            colorBoard[row, col] = CellColor.YELLOW;
+            ColorBoard[row, col] = CellColor.YELLOW;
         }
 
         public static void CastlingProcessing(MouseButtonEventArgs e , Grid gameField , bool firstTurn, int row, int col, FigureColor color)
         {
-            if (firstTurn && board[row, col + 1] == null
-              && board[row, col + 2] == null
-              && board[row, col + 3] != null
-              && board[row, col + 3] is Rook
-              && board[row, col + 3].color == color)
+            if (firstTurn && Board[row, col + 1] == null
+              && Board[row, col + 2] == null
+              && Board[row, col + 3] != null
+              && Board[row, col + 3] is Rook
+              && Board[row, col + 3].Сolor == color)
             {
                 PaintCellInBlue(gameField, e, row, col + 3);
             }
-            if (firstTurn && board[row, col - 1] == null
-                && board[row, col - 2] == null
-                && board[row, col - 3] == null
-                && board[row, col - 4] != null
-                && board[row, col - 4] is Rook
-                && board[row, col - 4].color == color)
+            if (firstTurn && Board[row, col - 1] == null
+                && Board[row, col - 2] == null
+                && Board[row, col - 3] == null
+                && Board[row, col - 4] != null
+                && Board[row, col - 4] is Rook
+                && Board[row, col - 4].Сolor == color)
             {
                 PaintCellInBlue(gameField, e, row, col - 4);
             }
@@ -178,36 +177,36 @@ namespace Chess.Classes.ChessBoard
                 }
             }
 
-            colorBoard[row, col] = CellColor.BLUE;
+            ColorBoard[row, col] = CellColor.BLUE;
         }
 
         public static void MoveFigure(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
         {
             CheckPawnAndKingFirstTurn(fromRow, fromCol);
 
-            board[toRow, toCol] = board[fromRow, fromCol];
-            board[fromRow, fromCol] = null;
+            Board[toRow, toCol] = Board[fromRow, fromCol];
+            Board[fromRow, fromCol] = null;
 
             MoveImage(e, GameField, fromRow, fromCol, toRow, toCol);
         }
 
         private static void CheckPawnAndKingFirstTurn(int row, int col)
         {
-            if (board[row, col] is Pawn)
+            if (Board[row, col] is Pawn)
             {
-                ((Pawn)board[row, col]).firstTurn = false;
+                ((Pawn)Board[row, col]).FirstTurn = false;
             }
-            else if (board[row, col] is King)
+            else if (Board[row, col] is King)
             {
-                ((King)board[row, col]).firstTurn = false;
+                ((King)Board[row, col]).FirstTurn = false;
             }
         }
         public static void PlaceOneFigureOnThePlaceOfAnother(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
         {
             CheckPawnAndKingFirstTurn(fromRow, fromCol);
 
-            board[toRow, toCol] = board[fromRow, fromCol];
-            board[fromRow, fromCol] = null;
+            Board[toRow, toCol] = Board[fromRow, fromCol];
+            Board[fromRow, fromCol] = null;
 
             RemoveFigure(GameField, toRow, toCol);
 
@@ -238,11 +237,11 @@ namespace Chess.Classes.ChessBoard
 
         public static void AttackFigure(MouseButtonEventArgs e, Grid gameField, int row , int col)
         {
-            for (int i = 0; i < colorBoard.GetLength(0); i++)
+            for (int i = 0; i < ColorBoard.GetLength(0); i++)
             {
-                for (int j = 0; j < colorBoard.GetLength(1); j++)
+                for (int j = 0; j < ColorBoard.GetLength(1); j++)
                 {
-                    if (colorBoard[i, j] == CellColor.YELLOW)
+                    if (ColorBoard[i, j] == CellColor.YELLOW)
                     {
                         PlaceOneFigureOnThePlaceOfAnother(e, gameField, row, col, i, j);
                     }
@@ -252,44 +251,44 @@ namespace Chess.Classes.ChessBoard
 
         public static void FillBoard()
         {
-            board[0,0] = new Rook(FigureColor.BLACK,0);
-            board[0, 7] = new Rook(FigureColor.BLACK, 1);
+            Board[0,0] = new Rook(FigureColor.BLACK,0);
+            Board[0, 7] = new Rook(FigureColor.BLACK, 1);
 
-            board[0, 1] = new Knight(FigureColor.BLACK, 0);
-            board[0, 6] = new Knight(FigureColor.BLACK, 1);
+            Board[0, 1] = new Knight(FigureColor.BLACK, 0);
+            Board[0, 6] = new Knight(FigureColor.BLACK, 1);
 
-            board[0, 2] = new Bishop(FigureColor.BLACK, 0);
-            board[0, 5] = new Bishop(FigureColor.BLACK, 1);
+            Board[0, 2] = new Bishop(FigureColor.BLACK, 0);
+            Board[0, 5] = new Bishop(FigureColor.BLACK, 1);
 
-            board[0, 4] = new King(FigureColor.BLACK);
-            board[0, 3] = new Queen(FigureColor.BLACK);
+            Board[0, 4] = new King(FigureColor.BLACK);
+            Board[0, 3] = new Queen(FigureColor.BLACK);
 
             for (int i = 0; i < 8; i++)
             {
-                board[1, i] = new Pawn(FigureColor.BLACK,i);
-                board[6, i] = new Pawn(FigureColor.WHITE, i);
+                Board[1, i] = new Pawn(FigureColor.BLACK,i);
+                Board[6, i] = new Pawn(FigureColor.WHITE, i);
             }
 
-            board[7, 0] = new Rook(FigureColor.WHITE, 0);
-            board[7, 7] = new Rook(FigureColor.WHITE, 1);
+            Board[7, 0] = new Rook(FigureColor.WHITE, 0);
+            Board[7, 7] = new Rook(FigureColor.WHITE, 1);
 
-            board[7, 1] = new Knight(FigureColor.WHITE, 0);
-            board[7, 6] = new Knight(FigureColor.WHITE, 1);
+            Board[7, 1] = new Knight(FigureColor.WHITE, 0);
+            Board[7, 6] = new Knight(FigureColor.WHITE, 1);
 
-            board[7, 2] = new Bishop(FigureColor.WHITE, 0);
-            board[7, 5] = new Bishop(FigureColor.WHITE, 1);
+            Board[7, 2] = new Bishop(FigureColor.WHITE, 0);
+            Board[7, 5] = new Bishop(FigureColor.WHITE, 1);
 
-            board[7, 4] = new King(FigureColor.WHITE);
-            board[7, 3] = new Queen(FigureColor.WHITE);
+            Board[7, 4] = new King(FigureColor.WHITE);
+            Board[7, 3] = new Queen(FigureColor.WHITE);
         }
 
         public static void FillColorBoard()
         {
-            for (int i = 0; i < colorBoard.GetLength(0); i++)
+            for (int i = 0; i < ColorBoard.GetLength(0); i++)
             {
-                for (int j = 0; j < colorBoard.GetLength(1); j++)
+                for (int j = 0; j < ColorBoard.GetLength(1); j++)
                 {
-                    colorBoard[i, j] = CellColor.EMPTY;
+                    ColorBoard[i, j] = CellColor.EMPTY;
                 }
             }
         }
@@ -300,15 +299,15 @@ namespace Chess.Classes.ChessBoard
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    if(board[i, j] == null && board[7 - i, j] != null)
+                    if(Board[i, j] == null && Board[7 - i, j] != null)
                     {
                         MoveFigureWithoutLogic(e, GameField, i, j, 7 - i, j);
                     }
-                    else if(board[i, j] != null && board[7 - i, j] == null)
+                    else if(Board[i, j] != null && Board[7 - i, j] == null)
                     {
                         MoveFigureWithoutLogic(e, GameField, 7 - i, j, i, j);
                     }
-                    else if(board[i, j] != null && board[7 - i, j] != null)
+                    else if(Board[i, j] != null && Board[7 - i, j] != null)
                     {
                         MoveFigureWithoutLogic(e, GameField, 0, 8, 7 - i, j);
 
@@ -323,8 +322,8 @@ namespace Chess.Classes.ChessBoard
         private static void MoveFigureWithoutLogic(MouseButtonEventArgs e, Grid GameField, int toRow, int toCol, int fromRow, int fromCol)
         {
 
-            board[toRow, toCol] = board[fromRow, fromCol];
-            board[fromRow, fromCol] = null;
+            Board[toRow, toCol] = Board[fromRow, fromCol];
+            Board[fromRow, fromCol] = null;
 
             MoveImage(e, GameField, fromRow, fromCol, toRow, toCol);
         }

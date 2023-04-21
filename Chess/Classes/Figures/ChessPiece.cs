@@ -5,14 +5,14 @@ namespace Chess.Classes.Figures
 {
     abstract public class ChessPiece
     {
-        public FigureColor color;
-        protected bool isChoosen;
+        public FigureColor Сolor;
+        protected bool IsChoosen;
 
         protected ChessPiece(FigureColor color)
         {
-            this.color = color;
+            Сolor = color;
 
-            isChoosen = false;
+            IsChoosen = false;
         }
 
         public abstract void Select(Grid gameField, MouseButtonEventArgs e);

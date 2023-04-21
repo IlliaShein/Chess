@@ -12,8 +12,8 @@ namespace ChessTests
         {
             ChessBoard.FillColorBoard();
 
-            int colorBoardRowsReal = ChessBoard.colorBoard.GetLength(0);
-            int colorBoardColumnsReal = ChessBoard.colorBoard.GetLength(1);
+            int colorBoardRowsReal = ChessBoard.ColorBoard.GetLength(0);
+            int colorBoardColumnsReal = ChessBoard.ColorBoard.GetLength(1);
 
             int expectedValue = 8;
 
@@ -26,8 +26,8 @@ namespace ChessTests
         {
             ChessBoard.FillBoard();
 
-            int boardRowsReal = ChessBoard.board.GetLength(0);
-            int boardColumnsReal = ChessBoard.board.GetLength(1);
+            int boardRowsReal = ChessBoard.Board.GetLength(0);
+            int boardColumnsReal = ChessBoard.Board.GetLength(1);
 
             int expectedValue = 8;
 
@@ -103,12 +103,12 @@ namespace ChessTests
 
             bool correctNumbering = true;
 
-            if (((Rook)ChessBoard.board[0, 0]).number != 0 || ((Rook)ChessBoard.board[7, 0]).number != 0 ||
-                ((Rook)ChessBoard.board[0, 7]).number != 1 || ((Rook)ChessBoard.board[7, 7]).number != 1 ||
-                ((Knight)ChessBoard.board[0, 1]).number != 0 || ((Knight)ChessBoard.board[7, 1]).number != 0 ||
-                ((Knight)ChessBoard.board[0, 6]).number != 1 || ((Knight)ChessBoard.board[7, 6]).number != 1 ||
-                ((Bishop)ChessBoard.board[0, 2]).number != 0 || ((Bishop)ChessBoard.board[7, 2]).number != 0 ||
-                ((Bishop)ChessBoard.board[0, 5]).number != 1 || ((Bishop)ChessBoard.board[7, 5]).number != 1)
+            if (((Rook)ChessBoard.Board[0, 0]).Number != 0 || ((Rook)ChessBoard.Board[7, 0]).Number != 0 ||
+                ((Rook)ChessBoard.Board[0, 7]).Number != 1 || ((Rook)ChessBoard.Board[7, 7]).Number != 1 ||
+                ((Knight)ChessBoard.Board[0, 1]).Number != 0 || ((Knight)ChessBoard.Board[7, 1]).Number != 0 ||
+                ((Knight)ChessBoard.Board[0, 6]).Number != 1 || ((Knight)ChessBoard.Board[7, 6]).Number != 1 ||
+                ((Bishop)ChessBoard.Board[0, 2]).Number != 0 || ((Bishop)ChessBoard.Board[7, 2]).Number != 0 ||
+                ((Bishop)ChessBoard.Board[0, 5]).Number != 1 || ((Bishop)ChessBoard.Board[7, 5]).Number != 1)
             {
                 correctNumbering = false;
             }
@@ -121,9 +121,9 @@ namespace ChessTests
 
             bool correctNumbering = true;
 
-            for (int i = 0; i < ChessBoard.board.GetLength(1); i++)
+            for (int i = 0; i < ChessBoard.Board.GetLength(1); i++)
             {
-                if (((Pawn)ChessBoard.board[1, i]).number != i || ((Pawn)ChessBoard.board[6, i]).number != i)
+                if (((Pawn)ChessBoard.Board[1, i]).Number != i || ((Pawn)ChessBoard.Board[6, i]).Number != i)
                 {
                     correctNumbering = false;
                     return correctNumbering;
@@ -139,14 +139,14 @@ namespace ChessTests
 
             bool correctColors = true;
 
-            for (int i = 0; i < ChessBoard.board.GetLength(1); i++)
+            for (int i = 0; i < ChessBoard.Board.GetLength(1); i++)
             {
-                if (ChessBoard.board[0, i].color != FigureColor.BLACK)
+                if (ChessBoard.Board[0, i].Ñolor != FigureColor.BLACK)
                 {
                     correctColors = false;
                     return correctColors;
                 }
-                if (ChessBoard.board[1, i].color != FigureColor.BLACK)
+                if (ChessBoard.Board[1, i].Ñolor != FigureColor.BLACK)
                 {
                     correctColors = false;
                     return correctColors;
@@ -154,19 +154,19 @@ namespace ChessTests
 
                 for (int j = 2; j < 6; j++)
                 {
-                    if (ChessBoard.board[j, i] != null)
+                    if (ChessBoard.Board[j, i] != null)
                     {
                         correctColors = false;
                         return correctColors;
                     }
                 }
 
-                if (ChessBoard.board[6, i].color != FigureColor.WHITE)
+                if (ChessBoard.Board[6, i].Ñolor != FigureColor.WHITE)
                 {
                     correctColors = false;
                     return correctColors;
                 }
-                if (ChessBoard.board[7, i].color != FigureColor.WHITE)
+                if (ChessBoard.Board[7, i].Ñolor != FigureColor.WHITE)
                 {
                     correctColors = false;
                     return correctColors;
@@ -200,11 +200,11 @@ namespace ChessTests
 
             bool correctFilling = true;
 
-            for (int i = 0; i < ChessBoard.colorBoard.GetLength(0); i++)
+            for (int i = 0; i < ChessBoard.ColorBoard.GetLength(0); i++)
             {
-                for (int j = 0; j < ChessBoard.colorBoard.GetLength(1); j++)
+                for (int j = 0; j < ChessBoard.ColorBoard.GetLength(1); j++)
                 {
-                    if(ChessBoard.colorBoard[i,j] != CellColor.EMPTY)
+                    if(ChessBoard.ColorBoard[i,j] != CellColor.EMPTY)
                     {
                         correctFilling = false;
                         return correctFilling;
@@ -246,11 +246,11 @@ namespace ChessTests
 
             bool correctFilling = true; 
 
-            for (int i = 2; i < ChessBoard.board.GetLength(0) - 2; i++)
+            for (int i = 2; i < ChessBoard.Board.GetLength(0) - 2; i++)
             {
-                for (int j = 0; j < ChessBoard.board.GetLength(1); j++)
+                for (int j = 0; j < ChessBoard.Board.GetLength(1); j++)
                 {
-                    if (ChessBoard.board[i, j] != null)
+                    if (ChessBoard.Board[i, j] != null)
                     {
                         correctFilling = false;
                         return correctFilling;
@@ -267,14 +267,14 @@ namespace ChessTests
 
             bool correctFilling = true;
 
-            for (int i = 0; i < ChessBoard.board.GetLength(0); i++)
+            for (int i = 0; i < ChessBoard.Board.GetLength(0); i++)
             {
-                if (!(ChessBoard.board[1, i] is Pawn))
+                if (!(ChessBoard.Board[1, i] is Pawn))
                 {
                     correctFilling = false;
                     return correctFilling;
                 }
-                if (!(ChessBoard.board[6, i] is Pawn))
+                if (!(ChessBoard.Board[6, i] is Pawn))
                 {
                     correctFilling = false;
                     return correctFilling;
@@ -290,14 +290,14 @@ namespace ChessTests
 
             bool correctFilling = true;
 
-            if (!(ChessBoard.board[row, 0] is Rook)
-                && !(ChessBoard.board[row, 7] is Rook)
-                && !(ChessBoard.board[row, 1] is Knight)
-                && !(ChessBoard.board[row, 6] is Rook)
-                && !(ChessBoard.board[row, 2] is Bishop)
-                && !(ChessBoard.board[row, 5] is Bishop)
-                && !(ChessBoard.board[row, 4] is King)
-                && !(ChessBoard.board[row, 3] is Queen))
+            if (!(ChessBoard.Board[row, 0] is Rook)
+                && !(ChessBoard.Board[row, 7] is Rook)
+                && !(ChessBoard.Board[row, 1] is Knight)
+                && !(ChessBoard.Board[row, 6] is Rook)
+                && !(ChessBoard.Board[row, 2] is Bishop)
+                && !(ChessBoard.Board[row, 5] is Bishop)
+                && !(ChessBoard.Board[row, 4] is King)
+                && !(ChessBoard.Board[row, 3] is Queen))
             {
                 correctFilling = false;
             }
