@@ -9,6 +9,15 @@
         Name="OptionsWindow"
         Title="Options" Height="450" Width="800"
         MouseDown="Window_MouseDown">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
     <Grid x:Name="GridOptions" Background="#FF3A3939">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -28,8 +37,9 @@
         <CheckBox x:Name="ReverseBoardButton" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="20"  Background="#FF408AF6" Content="Reverse board for each player" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black" Checked="ReverseBoardButton_Checked" Unchecked="ReverseBoardButton_Unchecked" />
         <CheckBox x:Name="ShowAvailableTurnsButton" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="20"  Background="#FF408AF6" Content="Show available turns" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black" Checked="ShowAvailableTurnsButton_Checked" Unchecked="ShowAvailableTurnsButton_Unchecked" />
         <CheckBox x:Name="ShowRealTimeButton" Grid.Column="1" Grid.Row="3" Margin="20" Background="#FF408AF6" Content="Show real time" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black" Unchecked="ShowRealTimeButton_Unchecked" Checked="ShowRealTimeButton_Checked" />
-        <Button x:Name="ScreenSizeButton" Grid.Column="1" Grid.Row="4" Margin="8" Background="#FF408AF6" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black" Click="ScreenSizeButton_Click"/>
-        <Button x:Name="BackButton" Grid.Column="1" Grid.Row="5" Margin="8" Background="#FF408AF6" Content="Back" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black" Click="BackButton_Click"/>
+
+        <Button x:Name="ScreenSizeButton" Grid.Column="1" Grid.Row="4" Margin="8" Style="{StaticResource BlueButtonStyle}" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black" Click="ScreenSizeButton_Click"/>
+        <Button x:Name="BackButton" Grid.Column="1" Grid.Row="5" Margin="8" Style="{StaticResource BlueButtonStyle}" Content="Back" Foreground="White" FontSize="25" FontWeight="Normal" FontFamily="Arial Black" Click="BackButton_Click"/>
         
     </Grid>
 </Window>
